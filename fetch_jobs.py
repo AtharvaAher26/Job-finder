@@ -369,8 +369,15 @@ def _tg_send_document(token: str, chat_id: str, path: Path, caption: str) -> Non
 def notify_telegram(summary: str, no_interview: list[dict],
                     others_count: int, digest_path: Path) -> None:
     """Send digest to Telegram. Needs TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID env vars."""
-    token = (os.environ.get("TELEGRAM_BOT_TOKEN", "") or "").strip()
-    chat_id = (os.environ.get("TELEGRAM_CHAT_ID", "") or "").strip()
+    raw_token = os.environ.get("TELEGRAM_BOT_TOKEN", "") or ""
+    raw_chat = os.environ.get("TELEGRAM_CHAT_ID", "") or ""
+    # Tokens never legitimately contain whitespace — remove ALL of it
+    # (kills normal spaces, non-breaking spaces, zero-width chars, newlines).
+    token = re.sub(r"\s+", "", raw_token)
+    removed = len(raw_token) - len(token)
+    chat_id = raw_chat.strip()
+    if removed:
+        print(f"[telegram] cleaned {removed} whitespace char(s) from token")
     if not token or not chat_id:
         print("[telegram] skipped — set TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID")
         return
@@ -389,6 +396,7 @@ def notify_telegram(summary: str, no_interview: list[dict],
 
 # ---------------------------------------------------------------- main
 def main() -> None:
+    print("[finder] build 2026-10-16d")  # version marker — check logs show this
     reset = "--reset" in sys.argv
     seen = set() if reset else load_seen()
 

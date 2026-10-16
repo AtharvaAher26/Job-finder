@@ -377,7 +377,8 @@ def notify_telegram(summary: str, no_interview: list[dict],
     removed = len(raw_token) - len(token)
     # tolerate pasting "TELEGRAM_BOT_TOKEN=<token>" (e.g. from a .env line)
     token = re.sub(r"(?i)^telegram_bot_token=", "", token)
-    chat_id = raw_chat.strip()
+    chat_id = re.sub(r"\s+", "", raw_chat)
+    chat_id = re.sub(r"(?i)^telegram_chat_id=", "", chat_id)
     if removed:
         print(f"[telegram] cleaned {removed} whitespace char(s) from token")
     if not token or not chat_id:
@@ -392,6 +393,13 @@ def notify_telegram(summary: str, no_interview: list[dict],
                           f"Full list: {len(no_interview)} no-interview picks + "
                           f"{others_count} more matches")
         print("[telegram] digest sent")
+    except urllib.error.HTTPError as e:
+        # Telegram's error body names the real cause, e.g. "chat not found"
+        try:
+            detail = e.read().decode("utf-8", "replace")[:200]
+        except Exception:
+            detail = ""
+        print(f"[telegram] failed: HTTP {e.code} — {detail}", file=sys.stderr)
     except Exception as e:
         print(f"[telegram] failed: {e}", file=sys.stderr)
 

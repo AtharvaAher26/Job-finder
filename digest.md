@@ -1,4 +1,4 @@
-# Job digest — 16 Oct 2026, 04:07 PM UTC
+# Job digest — 16 Oct 2026, 04:11 PM UTC
 
 Scanned 155 postings across 5 sources, 0 new, 0 matched your roles.
 

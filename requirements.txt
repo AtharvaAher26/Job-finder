@@ -1,0 +1,2 @@
+# No third-party packages needed — the script uses only the Python standard library.
+# This file exists so install steps like `pip install -r requirements.txt` don't fail.

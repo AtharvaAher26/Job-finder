@@ -375,6 +375,8 @@ def notify_telegram(summary: str, no_interview: list[dict],
     # (kills normal spaces, non-breaking spaces, zero-width chars, newlines).
     token = re.sub(r"\s+", "", raw_token)
     removed = len(raw_token) - len(token)
+    # tolerate pasting "TELEGRAM_BOT_TOKEN=<token>" (e.g. from a .env line)
+    token = re.sub(r"(?i)^telegram_bot_token=", "", token)
     chat_id = raw_chat.strip()
     if removed:
         print(f"[telegram] cleaned {removed} whitespace char(s) from token")

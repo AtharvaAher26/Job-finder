@@ -369,8 +369,8 @@ def _tg_send_document(token: str, chat_id: str, path: Path, caption: str) -> Non
 def notify_telegram(summary: str, no_interview: list[dict],
                     others_count: int, digest_path: Path) -> None:
     """Send digest to Telegram. Needs TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID env vars."""
-    token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
-    chat_id = os.environ.get("TELEGRAM_CHAT_ID", "")
+    token = (os.environ.get("TELEGRAM_BOT_TOKEN", "") or "").strip()
+    chat_id = (os.environ.get("TELEGRAM_CHAT_ID", "") or "").strip()
     if not token or not chat_id:
         print("[telegram] skipped — set TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID")
         return

@@ -33,4 +33,6 @@ jobs:
           # applications.json only exists after you use the tracker — don't fail if missing
           [ -f applications.json ] && git add applications.json || true
           git diff --quiet --cached || git commit -m "daily digest $(date -u +%F)"
+          # pull first — a push from your laptop may have landed mid-run
+          git pull --rebase origin main
           git push

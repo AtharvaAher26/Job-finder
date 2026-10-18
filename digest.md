@@ -1,207 +1,232 @@
-# Job digest — 17 Oct 2026, 07:56 AM UTC
+# Job digest — 18 Oct 2026, 08:12 AM UTC
 
-Scanned 162 postings across 5 sources, 47 new, 39 matched your roles.
+Scanned 153 postings across 5 sources, 49 new, 44 matched your roles.
 
 ## 🎯 Likely test/resume-based selection (no-interview signals) (0)
 
 _None this run._
 
-## 📌 Other matching roles (check selection process yourself) (39)
+## 📌 Other matching roles (check selection process yourself) (44)
 
-### Associate Data Scientist @ AlgaeCal
-- **Source:** RemoteOK · **Pay:** 💰 paid
-- **Matched:** machine learning, data scientist
-- [Apply / details](https://remoteOK.com/remote-jobs/remote-associate-data-scientist-algaecal-1137531)
-
-### Director of IT and Workplace @ Hippocratic AI
-- **Source:** RemoteOK · **Pay:** 💰 paid
-- **Matched:** llm
-- [Apply / details](https://remoteOK.com/remote-jobs/remote-director-of-it-and-workplace-hippocratic-ai-1137530)
-
-### Product Manager, Homepage @ Wolt - English
-- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** ai/ml
-- [Apply / details](https://www.arbeitnow.com/jobs/product-manager-homepage-berlin-143838)
-
-### Engineering Manager – Robot Intelligence @ RobCo
+### Solutions Architect @ vercel
 - **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** machine learning
-- [Apply / details](https://www.arbeitnow.com/jobs/engineering-manager-robot-intelligence-munich-433028)
+- **Matched:** llm
+- [Apply / details](https://www.arbeitnow.com/jobs/remote-solutions-architect-271055)
 
-### Senior QA Engineer - Berlin @ Resident Advisor
-- **Source:** Arbeitnow · **Pay:** 🆓 unpaid
+### Senior QA / Test Engineer (w/m/x/d) @ MILES Mobility GmbH
+- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
+- **Matched:** qa automation
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-qa-test-engineer-d-berlin-370347)
+
+### QA Engineering Intern (w/m/x/d) @ MILES Mobility GmbH
+- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
 - **Matched:** test automation
-- [Apply / details](https://www.arbeitnow.com/jobs/senior-qa-engineer-berlin-153034)
+- [Apply / details](https://www.arbeitnow.com/jobs/qa-engineering-intern-d-berlin-458294)
 
-### Staff Forward Deployed Engineer – AI-Native Software Development @ jetbrains
+### Werkstudent (w/m/d) Software Development @ Holzland Becker
 - **Source:** Arbeitnow · **Pay:** ❓ pay unknown
 - **Matched:** llm
-- [Apply / details](https://www.arbeitnow.com/jobs/staff-forward-deployed-engineer-ai-native-software-development-berlin-munich-273313)
+- [Apply / details](https://www.arbeitnow.com/jobs/werkstudent-software-development-offenbach-am-main-264973)
 
-### Forward Deployed Engineer - m/f/d @ Langdock
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** llm
-- [Apply / details](https://www.arbeitnow.com/jobs/forward-deployed-engineer-berlin-447106)
-
-### Working Student — AI Engineering & Document Intelligence @ Tracium GmbH
+### (Senior) Python Entwickler (m/w/d) @ HyPlus Technology GmbH
 - **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** machine learning
-- [Apply / details](https://www.arbeitnow.com/jobs/working-student-ai-engineering-document-intelligence-berlin-357203)
+- **Matched:** machine learning, generative ai
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-python-entwickler-ratingen-257414)
 
-### Senior AI Engineer — Document Intelligence @ Tracium GmbH
-- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** ai engineer, machine learning
-- [Apply / details](https://www.arbeitnow.com/jobs/senior-ai-engineer-document-intelligence-berlin-350144)
-
-### Senior AI R&D Engineer - Performance - Pre-training (f/m/d) @ Alephalpha
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** machine learning, deep learning, llm
-- [Apply / details](https://www.arbeitnow.com/jobs/senior-ai-rd-engineer-performance-pre-training-heidelberg-119986)
-
-### Senior Flight Dynamics Integration Engineer (Wayland) (All genders) @ Skdse
+### (Senior) DevOps Engineer (m/w/d) @ HyPlus Technology GmbH
 - **Source:** Arbeitnow · **Pay:** ❓ pay unknown
 - **Matched:** llm
-- [Apply / details](https://www.arbeitnow.com/jobs/senior-flight-dynamics-integration-engineer-wayland-all-genders-137167)
+- [Apply / details](https://www.arbeitnow.com/jobs/remote-senior-devops-engineer-ratingen-155414)
 
-### Lead Solutions Architect - Generative AI (EMEA Emerging DNB) @ databricks
-- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** machine learning, deep learning, llm, generative ai, genai, mlops
-- [Apply / details](https://www.arbeitnow.com/jobs/lead-solutions-architect-generative-ai-emea-emerging-dnb-171985)
-
-### Senior Partnership Manager (m/f/d) @ raisin
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** generative ai
-- [Apply / details](https://www.arbeitnow.com/jobs/senior-partnership-manager-berlin-berlin-318639)
-
-### Weiterbildung zum Visual & Audio Designer (m/w/d) – (100 % förderbar) @ velpTEC GmbH
+### Senior Java Backend Entwickler (m/w/d) @ HyPlus Technology GmbH
 - **Source:** Arbeitnow · **Pay:** ❓ pay unknown
 - **Matched:** generative ai
-- [Apply / details](https://www.arbeitnow.com/jobs/weiterbildung-zum-visual-audio-designer-100-forderbar-berlin-457366)
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-java-backend-entwickler-ratingen-327085)
 
-### UX Product Designer @ Archer56
+### Graduate Cybersecurity Threat Researcher (Position located in Cheltenham, United Kingdom) @ knowbe4
 - **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** artificial intelligence, ai/ml
-- [Apply / details](https://www.arbeitnow.com/jobs/ux-product-designer-south-east-hampshire-174993)
+- **Matched:** artificial intelligence
+- [Apply / details](https://www.arbeitnow.com/jobs/graduate-cybersecurity-threat-researcher-position-located-in-cheltenham-united-kingdom-93373)
 
-### Frontier Agent Engineering Manager, Enterprise @ scaleai
+### Solutions Architect @ vercel
+- **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** llm
+- [Apply / details](https://www.arbeitnow.com/jobs/solutions-architect-germany-185749)
+
+### Director of Quality @ Lilt Corporate
+- **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** machine learning, artificial intelligence, llm
+- [Apply / details](https://www.arbeitnow.com/jobs/director-of-quality-london-108201)
+
+### Senior Contracts Manager @ Andurilindustries
+- **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** artificial intelligence, computer vision
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-contracts-manager-sydney-australia-351728)
+
+### SQL Developer – AI Prompting & Context Engineering @ Bromcom Computers Plc
 - **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** generative ai, ai/ml, ml/ai
-- [Apply / details](https://www.arbeitnow.com/jobs/frontier-agent-engineering-manager-enterprise-london-240902)
+- **Matched:** llm
+- [Apply / details](https://www.arbeitnow.com/jobs/remote-sql-developer-ai-prompting-context-engineering-bromley-374742)
 
-### Senior Software Engineer in Build Engineering @ Graphcore
+### Staff Software Engineer (Agentic Search) - Runtime @ Nebius
 - **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** machine learning, artificial intelligence
-- [Apply / details](https://www.arbeitnow.com/jobs/senior-software-engineer-in-build-engineering-cambridge-132308)
+- **Matched:** ai/ml
+- [Apply / details](https://www.arbeitnow.com/jobs/staff-software-engineer-agentic-search-runtime-london-393968)
 
-### Senior Software Engineer in Build Engineering @ Graphcore
+### Staff  Software Engineer (Agentic Search) - Crawler @ Nebius
 - **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** machine learning, artificial intelligence
-- [Apply / details](https://www.arbeitnow.com/jobs/senior-software-engineer-in-build-engineering-bristol-30704)
+- **Matched:** ai/ml
+- [Apply / details](https://www.arbeitnow.com/jobs/staff-software-engineer-agentic-search-crawler-london-25809)
 
-### Senior Software Engineer in Build Engineering @ Graphcore
+### Senior Software Engineer (Agentic Search) - Web Access Engineer @ Nebius
 - **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** machine learning, artificial intelligence
-- [Apply / details](https://www.arbeitnow.com/jobs/senior-software-engineer-in-build-engineering-london-94528)
+- **Matched:** ai/ml
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-software-engineer-agentic-search-web-access-engineer-london-93260)
 
-### Machine Learning Engineer – Lumen Enterprise Models (SWE-focused LLMs) @ Cosine
+### Senior ML Engineer (Agentic Search) @ Nebius
 - **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** machine learning, mlops
-- [Apply / details](https://www.arbeitnow.com/jobs/machine-learning-engineer-lumen-enterprise-models-swe-focused-llms-london-467732)
+- **Matched:** ml engineer, machine learning, deep learning, llm, nlp, ai/ml
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-ml-engineer-agentic-search-london-187993)
 
-### Engineering Manager @ Radiant
-- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** sdet
-- [Apply / details](https://www.arbeitnow.com/jobs/engineering-manager-london-10285)
-
-### Product Designer @ Creativex
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** machine learning, computer vision
-- [Apply / details](https://www.arbeitnow.com/jobs/product-designer-london-105391)
-
-### 3D Reconstruction Research Scientist/Engineer @ Niantic Spatial
+### Senior Machine Learning Engineer, ADAS @ Wayve
 - **Source:** Arbeitnow · **Pay:** 💰 paid
 - **Matched:** machine learning, deep learning, computer vision
-- [Apply / details](https://www.arbeitnow.com/jobs/3d-reconstruction-research-scientist-engineer-london-480945)
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-machine-learning-engineer-adas-london-united-kingdom-114925)
 
-### Customer Enablement Specialist (12 month FTC) @ Kaluza
-- **Source:** Arbeitnow · **Pay:** 🆓 unpaid
-- **Matched:** deep learning
-- [Apply / details](https://www.arbeitnow.com/jobs/customer-enablement-specialist-12-month-ftc-paris-paris-279768)
+### Senior IA Inference Engineer (x/f/m) @ Doctolib
+- **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** machine learning, llm, genai, mlops
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-ia-inference-engineer-paris-paris-99480)
 
-### Senior AI Engineer - Freelance @ Mirakl - Labs
+### Senior Agents Platform Engineer (x/f/m) @ Doctolib
+- **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** machine learning, llm, genai
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-agents-platform-engineer-paris-paris-164639)
+
+### Senior AI Engineer - Freelance @ mirakllabs
 - **Source:** Arbeitnow · **Pay:** ❓ pay unknown
 - **Matched:** ai engineer, machine learning, artificial intelligence, generative ai
-- [Apply / details](https://www.arbeitnow.com/jobs/senior-ai-engineer-freelance-paris-493011)
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-ai-engineer-freelance-bordeaux-335734)
 
-### Senior AI Engineer - Freelance @ Mirakl - Labs
+### Senior AI Engineer - Freelance @ mirakllabs
 - **Source:** Arbeitnow · **Pay:** ❓ pay unknown
 - **Matched:** ai engineer, machine learning, artificial intelligence, generative ai
-- [Apply / details](https://www.arbeitnow.com/jobs/senior-ai-engineer-freelance-bordeaux-75943)
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-ai-engineer-freelance-paris-375309)
 
-### Solutions Architect Greenfield Enterprise France @ databricks
-- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** ml/ai
-- [Apply / details](https://www.arbeitnow.com/jobs/solutions-architect-greenfield-enterprise-france-paris-341133)
+### Product Builder - Mo (AI health companion) @ Alan
+- **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** llm
+- [Apply / details](https://www.arbeitnow.com/jobs/product-builder-mo-ai-health-companion-paris-france-413430)
 
-### Lead Solutions Architect - Generative AI (EMEA Emerging DNB) @ databricks
+### AI engineer (AI & GenAI) - People Domain (f/m/d) @ Decathlontechnology
 - **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** machine learning, deep learning, llm, generative ai, genai, mlops
-- [Apply / details](https://www.arbeitnow.com/jobs/lead-solutions-architect-generative-ai-emea-emerging-dnb-420027)
+- **Matched:** ai engineer, llm, genai
+- [Apply / details](https://www.arbeitnow.com/jobs/ai-engineer-ai-genai-people-domain-paris-paris-306403)
 
-### HIL Engineer — Huracan Rocket Engine @ The Exploration Company
-- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
+### Senior Technical Advisor, Data Use and Decision Science @ Resolvetosavelives
+- **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** artificial intelligence
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-technical-advisor-data-use-and-decision-science-us-uk-rwanda-nigeria-india-ethiopia-drc-476409)
+
+### Software & Hardware Integration QA Engineer @ Quandela
+- **Source:** Arbeitnow · **Pay:** 💰 paid
 - **Matched:** test automation
-- [Apply / details](https://www.arbeitnow.com/jobs/hil-engineer-huracan-rocket-engine-bordeaux-105519)
+- [Apply / details](https://www.arbeitnow.com/jobs/software-hardware-integration-qa-engineer-massy-396697)
 
-### Finance Data Annotation Quality Analyst @ Mistral.ai
+### Lead Solutions Engineer @ Exotec
 - **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** llm, ai/ml
-- [Apply / details](https://www.arbeitnow.com/jobs/finance-data-annotation-quality-analyst-paris-357673)
+- **Matched:** artificial intelligence
+- [Apply / details](https://www.arbeitnow.com/jobs/remote-lead-solutions-engineer-france-354209)
 
-### IP & Licensing - Intern @ Mistral.ai
+### AI Solutions Engineer @ Cascination Ag
+- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
+- **Matched:** artificial intelligence, ai/ml
+- [Apply / details](https://www.arbeitnow.com/jobs/ai-solutions-engineer-bern-345991)
+
+### Cyber Security Engineer/ Analyst (all genders) CH @ BSI Software
+- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
+- **Matched:** machine learning
+- [Apply / details](https://www.arbeitnow.com/jobs/cyber-security-engineer-analyst-all-genders-ch-baar-145758)
+
+### Senior Content Manager (all genders) @ BSI Software
+- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
+- **Matched:** machine learning
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-content-manager-all-genders-zurich-442878)
+
+### Staff Software Engineer (Agentic Search) - Runtime @ Nebius
+- **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** ai/ml
+- [Apply / details](https://www.arbeitnow.com/jobs/staff-software-engineer-agentic-search-runtime-zurich-336752)
+
+### Staff  Software Engineer (Agentic Search) - Crawler @ Nebius
+- **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** ai/ml
+- [Apply / details](https://www.arbeitnow.com/jobs/staff-software-engineer-agentic-search-crawler-zurich-313876)
+
+### Senior Software Engineer (Agentic Search) - Web Access Engineer @ Nebius
+- **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** ai/ml
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-software-engineer-agentic-search-web-access-engineer-zurich-49699)
+
+### Senior ML Engineer (Agentic Search) @ Nebius
+- **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** ml engineer, machine learning, deep learning, llm, nlp, ai/ml
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-ml-engineer-agentic-search-zurich-431355)
+
+### Director Research & Development @ Skyteam
+- **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** artificial intelligence
+- [Apply / details](https://www.arbeitnow.com/jobs/director-research-development-amstelveen-331226)
+
+### Senior Quality Engineer - Tellent Intelligence (AI) @ Tellent
+- **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** machine learning, llm, test automation
+- [Apply / details](https://www.arbeitnow.com/jobs/remote-senior-quality-engineer-tellent-intelligence-ai-amsterdam-295070)
+
+### Medior Web & Mobile Full Stack Developer @ Learned
 - **Source:** Arbeitnow · **Pay:** 💰 paid
 - **Matched:** llm
-- [Apply / details](https://www.arbeitnow.com/jobs/ip-licensing-intern-paris-115445)
+- [Apply / details](https://www.arbeitnow.com/jobs/medior-web-mobile-full-stack-developer-utrecht-375740)
 
-### Deputy Accounting Director (freelance/contractor) @ Mirakl
+### Staff Software Engineer (Agentic Search) - Runtime @ Nebius
+- **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** ai/ml
+- [Apply / details](https://www.arbeitnow.com/jobs/staff-software-engineer-agentic-search-runtime-amsterdam-135906)
+
+### Staff  Software Engineer (Agentic Search) - Crawler @ Nebius
+- **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** ai/ml
+- [Apply / details](https://www.arbeitnow.com/jobs/staff-software-engineer-agentic-search-crawler-amsterdam-119789)
+
+### Senior Software Engineer (Agentic Search) - Web Access Engineer @ Nebius
+- **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** ai/ml
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-software-engineer-agentic-search-web-access-engineer-amsterdam-142407)
+
+### Senior ML Engineer (Agentic Search) @ Nebius
+- **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** ml engineer, machine learning, deep learning, llm, nlp, ai/ml
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-ml-engineer-agentic-search-amsterdam-391338)
+
+### Stagiair(e) Marketing @ 12Build
 - **Source:** Arbeitnow · **Pay:** ❓ pay unknown
 - **Matched:** artificial intelligence
-- [Apply / details](https://www.arbeitnow.com/jobs/deputy-accounting-director-freelance-contractor-bordeaux-294717)
+- [Apply / details](https://www.arbeitnow.com/jobs/stagiaire-marketing-nijverdal-153763)
 
-### Deputy Accounting Director (freelance/contractor) @ Mirakl
+### Engineering Lead (Finance & Internal Tools) @ Workwize
 - **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** artificial intelligence
-- [Apply / details](https://www.arbeitnow.com/jobs/deputy-accounting-director-freelance-contractor-paris-139532)
+- **Matched:** llm
+- [Apply / details](https://www.arbeitnow.com/jobs/engineering-lead-finance-internal-tools-amsterdam-171567)
 
-### Solutions Architect @ databricks
-- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** ml/ai
-- [Apply / details](https://www.arbeitnow.com/jobs/solutions-architect-zurich-303054)
+### Staff Software Engineer: Applied AI @ Flexport
+- **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** llm
+- [Apply / details](https://www.arbeitnow.com/jobs/staff-software-engineer-applied-ai-amsterdam-138358)
 
-### Machine Learning Certification Researcher @ Destinusgroup
-- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
+### Senior Manager – Data Engineering & Machine Learning @ Catawiki
+- **Source:** Arbeitnow · **Pay:** 💰 paid
 - **Matched:** machine learning, artificial intelligence
-- [Apply / details](https://www.arbeitnow.com/jobs/machine-learning-certification-researcher-zurich-203268)
-
-### Group Product Manager @ Prosus
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** llm, generative ai, genai, mlops, ai/ml
-- [Apply / details](https://www.arbeitnow.com/jobs/group-product-manager-amsterdam-138407)
-
-### Staff Forward Deployed Engineer – AI-Native Software Development @ jetbrains
-- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** llm
-- [Apply / details](https://www.arbeitnow.com/jobs/staff-forward-deployed-engineer-ai-native-software-development-amsterdam-326389)
-
-### Lead Solutions Architect - Generative AI (EMEA Emerging DNB) @ databricks
-- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** machine learning, deep learning, llm, generative ai, genai, mlops
-- [Apply / details](https://www.arbeitnow.com/jobs/lead-solutions-architect-generative-ai-emea-emerging-dnb-amsterdam-234185)
-
-### Doximity: Commercial Data Scientist @ Doximity
-- **Source:** WeWorkRemotely · **Pay:** 💰 paid
-- **Matched:** machine learning, artificial intelligence, data scientist
-- [Apply / details](https://weworkremotely.com/remote-jobs/doximity-commercial-data-scientist)
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-manager-data-engineering-machine-learning-amsterdam-43316)
 
 ---
 _No-interview flags are keyword heuristics — always verify the actual hiring process in the posting before applying._

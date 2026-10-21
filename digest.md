@@ -1,201 +1,158 @@
-# Job digest — 20 Oct 2026, 08:44 AM UTC
+# Job digest — 21 Oct 2026, 08:45 AM UTC
 
-Scanned 136 postings across 5 sources, 44 new, 38 matched your roles.
+Scanned 133 postings across 5 sources, 40 new, 29 matched your roles.
 
-## 🎯 Likely test/resume-based selection (no-interview signals) (1)
+## 🎯 Likely test/resume-based selection (no-interview signals) (3)
 
-### Director - Mission Operations @ Se3
+### AI/ML Engineer @ Melotech
 - **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** computer vision
-- **No-interview signals:** take home
-- [Apply / details](https://www.arbeitnow.com/jobs/director-mission-operations-munich-423646)
+- **Matched:** ml engineer, machine learning, mlops, ai/ml
+- **No-interview signals:** take-home
+- [Apply / details](https://www.arbeitnow.com/jobs/ai-ml-engineer-berlin-214566)
 
-## 📌 Other matching roles (check selection process yourself) (37)
-
-### Senior Machine Learning Engineer, AI Platform @ Smartly
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** machine learning, natural language processing, generative ai, computer vision, mlops, ai/ml
-- [Apply / details](https://www.arbeitnow.com/jobs/senior-machine-learning-engineer-ai-platform-berliini-309496)
-
-### Senior Data Scientist (f/m/d) @ Moss
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** llm, data scientist
-- [Apply / details](https://www.arbeitnow.com/jobs/senior-data-scientist-berlin-98417)
-
-### Technical Product Manager - AI Finance App @ Bjak
-- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** llm
-- [Apply / details](https://www.arbeitnow.com/jobs/technical-product-manager-ai-finance-app-germany-334824)
-
-### Strategy Lead - Acquisition @ iwoca Deutschland
+### Strategic Account Executive @ Twilio
 - **Source:** Arbeitnow · **Pay:** 🆓 unpaid
+- **Matched:** artificial intelligence
+- **No-interview signals:** text-based
+- [Apply / details](https://www.arbeitnow.com/jobs/strategic-account-executive-60349)
+
+### Energy Markets - France (CDD) @ Axle Careers
+- **Source:** Arbeitnow · **Pay:** 💰 paid
 - **Matched:** data scientist
-- [Apply / details](https://www.arbeitnow.com/jobs/strategy-lead-acquisition-berlin-72070)
+- **No-interview signals:** take-home
+- [Apply / details](https://www.arbeitnow.com/jobs/energy-markets-france-cdd-paris-12354)
 
-### Senior Sales Manager - EMEA @ Inmobi
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** machine learning, generative ai, ai/ml
-- [Apply / details](https://www.arbeitnow.com/jobs/senior-sales-manager-emea-335121)
+## 📌 Other matching roles (check selection process yourself) (26)
 
-### AI Native Account Executive, Compute @ Fal Ai
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** ml engineer, generative ai, ai/ml
-- [Apply / details](https://www.arbeitnow.com/jobs/remote-ai-native-account-executive-compute-56125)
-
-### Langfuse - Senior Software Engineer, SDK @ Clickhouse
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** llm, genai, ml/ai
-- [Apply / details](https://www.arbeitnow.com/jobs/langfuse-senior-software-engineer-sdk-germany-15922)
-
-### Communications & Social Media Associate @ Se3
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** computer vision
-- [Apply / details](https://www.arbeitnow.com/jobs/communications-social-media-associate-munich-414636)
-
-### Legal Council @ Se3
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** computer vision
-- [Apply / details](https://www.arbeitnow.com/jobs/legal-council-munich-433983)
-
-### Head of Marketing & Communications @ Se3
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** computer vision
-- [Apply / details](https://www.arbeitnow.com/jobs/head-of-marketing-communications-munich-155917)
-
-### Head of Governmental Affairs & Communications @ Se3
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** computer vision
-- [Apply / details](https://www.arbeitnow.com/jobs/head-of-governmental-affairs-communications-berlin-166437)
-
-### VP Programmes @ Se3
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** computer vision
-- [Apply / details](https://www.arbeitnow.com/jobs/vp-programmes-munich-417056)
-
-### Data Engineer @ ocadogroup
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** machine learning
-- [Apply / details](https://www.arbeitnow.com/jobs/data-engineer-hatfield-359118)
-
-### Lead Photonics Design Engineer - III/V Components @ Salience Labs
-- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** test automation
-- [Apply / details](https://www.arbeitnow.com/jobs/lead-photonics-design-engineer-iii-v-components-oxford-378561)
-
-### Head of Platform (Infrastructure & DevOps) @ Mimica
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** llm, mlops
-- [Apply / details](https://www.arbeitnow.com/jobs/head-of-platform-infrastructure-devops-europe-328997)
-
-### Technical Product Manager - AI Finance App @ Bjak
+### Senior Backend Engineer (m|w|d) - Java/Kotlin, AWS, Kafka @ idealo internet GmbH
 - **Source:** Arbeitnow · **Pay:** ❓ pay unknown
 - **Matched:** llm
-- [Apply / details](https://www.arbeitnow.com/jobs/technical-product-manager-ai-finance-app-london-216078)
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-backend-engineer-mwd-java-kotlin-aws-kafka-berlin-150345)
 
-### Staff Mechanical Product Engineer (Production) @ Andurilindustries
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** computer vision
-- [Apply / details](https://www.arbeitnow.com/jobs/staff-mechanical-product-engineer-production-sydney-australia-28370)
+### Automation Engineer (m/w/d) 100% Remote – n8n & KI @ Martic Solutions
+- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
+- **Matched:** automation engineer
+- [Apply / details](https://www.arbeitnow.com/jobs/automation-engineer-100-remote-n8n-ki-berlin-291379)
 
-### Staff Mechanical Product Engineer (Platform) @ Andurilindustries
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** computer vision
-- [Apply / details](https://www.arbeitnow.com/jobs/staff-mechanical-product-engineer-platform-sydney-australia-180860)
-
-### Team Lead Customer Success - Southern Europe @ Constructor
+### Senior Solutions Engineer @ True Talent Solutions Partners
 - **Source:** Arbeitnow · **Pay:** 💰 paid
 - **Matched:** machine learning
-- [Apply / details](https://www.arbeitnow.com/jobs/remote-team-lead-customer-success-southern-europe-131358)
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-solutions-engineer-munich-348956)
 
-### Senior Technical Project Manager (Region Delivery) @ Nebius
+### Senior Controlling Manager (FP&A) @ Lovehoney Group
+- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
+- **Matched:** artificial intelligence
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-controlling-manager-fpa-berlin-364696)
+
+### Senior Brand Manager @ Lovehoney Group
+- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
+- **Matched:** artificial intelligence
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-brand-manager-berlin-69454)
+
+### Senior Security Engineer - Remote @ Parity
+- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
+- **Matched:** machine learning
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-security-engineer-remote-196334)
+
+### Technical Program Manager, AI Delivery for Public Sector & Defense, Germany @ Cohere
 - **Source:** Arbeitnow · **Pay:** 💰 paid
 - **Matched:** ai/ml
-- [Apply / details](https://www.arbeitnow.com/jobs/senior-technical-project-manager-region-delivery-london-344709)
+- [Apply / details](https://www.arbeitnow.com/jobs/technical-program-manager-ai-delivery-for-public-sector-defense-germany-418557)
 
-### Senior Technical Program Manager (Cloud Capacity) @ Nebius
+### Data Scientist @ Melotech
 - **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** data scientist
+- [Apply / details](https://www.arbeitnow.com/jobs/data-scientist-berlin-362359)
+
+### Unix Platform Engineer @ Bluecrestcapitalmanagement
+- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
 - **Matched:** ai/ml
-- [Apply / details](https://www.arbeitnow.com/jobs/senior-technical-program-manager-cloud-capacity-london-198461)
+- [Apply / details](https://www.arbeitnow.com/jobs/unix-platform-engineer-london-476831)
 
-### Enterprise Customer Success Manager @ UpSlide
+### Staff Data Scientist @ Airwallex
+- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
+- **Matched:** machine learning, data scientist
+- [Apply / details](https://www.arbeitnow.com/jobs/staff-data-scientist-london-335886)
+
+### Senior Data Insights Consultant - EMEA @ Map
 - **Source:** Arbeitnow · **Pay:** 💰 paid
 - **Matched:** machine learning
-- [Apply / details](https://www.arbeitnow.com/jobs/enterprise-customer-success-manager-paris-224209)
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-data-insights-consultant-emea-london-196123)
 
-### Mid-market Customer Success Manager @ UpSlide
-- **Source:** Arbeitnow · **Pay:** 💰 paid
+### Director of MSSP Sales, EMEA @ Extrahopnetworks
+- **Source:** Arbeitnow · **Pay:** 🆓 unpaid
 - **Matched:** machine learning
-- [Apply / details](https://www.arbeitnow.com/jobs/mid-market-customer-success-manager-paris-100648)
+- [Apply / details](https://www.arbeitnow.com/jobs/director-of-mssp-sales-emea-275794)
 
-### Director, Engineering, AI Search @ Algolia
+### AI Enterprise Architect - WPP Media @ Wpp
+- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
+- **Matched:** machine learning, artificial intelligence, generative ai, ai/ml
+- [Apply / details](https://www.arbeitnow.com/jobs/ai-enterprise-architect-wpp-media-london-137209)
+
+### Head of CMC Data Management @ Excelya
+- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
+- **Matched:** artificial intelligence
+- [Apply / details](https://www.arbeitnow.com/jobs/head-of-cmc-data-management-saclay-427053)
+
+### Senior Software Engineer (Python/Django) - (F/H/X) - CDI @ Kraken
+- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
+- **Matched:** machine learning, artificial intelligence
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-software-engineer-python-django-cdi-paris-476080)
+
+### AI Engineer - Digital Unit Sports (f/m/d) @ Decathlontechnology
+- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
+- **Matched:** ai engineer, machine learning, deep learning, genai, mlops, ml/ai
+- [Apply / details](https://www.arbeitnow.com/jobs/ai-engineer-digital-unit-sports-lille-btwin-village-nord-9632)
+
+### Digital Design Leader [Permanent - CDI] (f/m/d) @ Junior Data Scientist - Downstream Demand Forecast - Value Chain ...
 - **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** artificial intelligence
+- [Apply / details](https://www.arbeitnow.com/jobs/digital-design-leader-permanent-cdi-lille-upline-nord-238236)
+
+### Account Executive (German Speaking) @ Deepgram
+- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
 - **Matched:** ai/ml
-- [Apply / details](https://www.arbeitnow.com/jobs/director-engineering-ai-search-paris-192729)
+- [Apply / details](https://www.arbeitnow.com/jobs/account-executive-german-speaking-switzerland-26743)
 
-### Applied Science - Research Engineer (Robotics) @ Mistral.ai
+### English to German (Switzerland) Review Lead for UI, Marketing & Product Content @ Welo Global
+- **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** nlp
+- [Apply / details](https://www.arbeitnow.com/jobs/english-to-german-switzerland-review-lead-for-ui-marketing-product-content-zurich-switzerland-195762)
+
+### Junior Business Data Analyst @ Pix4D
+- **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** machine learning, generative ai, computer vision
+- [Apply / details](https://www.arbeitnow.com/jobs/junior-business-data-analyst-lausanne-187365)
+
+### Senior DevOps Engineer – GenAI Platform (100%) @ Callista Group AG
 - **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** machine learning
-- [Apply / details](https://www.arbeitnow.com/jobs/applied-science-research-engineer-robotics-paris-137835)
+- **Matched:** llm, genai
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-devops-engineer-genai-platform-100-zurich-220113)
 
-### Evaluation Engineer, Applied AI @ Mistral.ai
+### Senior DevOps Engineer – GenAI Platform & Azure Cloud (100%) @ Callista Group AG
 - **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** machine learning, llm, large language model
-- [Apply / details](https://www.arbeitnow.com/jobs/evaluation-engineer-applied-ai-paris-96814)
+- **Matched:** llm, genai
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-devops-engineer-genai-platform-azure-cloud-100-zurich-290062)
 
-### AI Content & Knowledge Manager Intern @ Backmarket
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** machine learning, llm, generative ai
-- [Apply / details](https://www.arbeitnow.com/jobs/ai-content-knowledge-manager-intern-bordeaux-420170)
-
-### Product Manager IA - Paris @ Hubvisory
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** llm, mlops
-- [Apply / details](https://www.arbeitnow.com/jobs/product-manager-ia-paris-387464)
-
-### Machine Learning Research Engineer – Visual Navigation @ Harmattan Ai
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** machine learning, deep learning, computer vision, mlops
-- [Apply / details](https://www.arbeitnow.com/jobs/machine-learning-research-engineer-visual-navigation-lausanne-360098)
-
-### Senior Generative AI Engineer @ SwissPeak Partners GmbH
-- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** ai engineer, machine learning, generative ai, genai, data scientist
-- [Apply / details](https://www.arbeitnow.com/jobs/senior-generative-ai-engineer-zurich-65961)
-
-### ServiceNow AI Architect @ SwissPeak Partners GmbH
-- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** artificial intelligence, generative ai
-- [Apply / details](https://www.arbeitnow.com/jobs/remote-servicenow-ai-architect-zurich-117232)
-
-### AI Engineer @ Gain
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** ai engineer, llm
-- [Apply / details](https://www.arbeitnow.com/jobs/ai-engineer-amsterdam-473945)
-
-### Director, European Strategic Communications @ Andurilindustries
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** computer vision
-- [Apply / details](https://www.arbeitnow.com/jobs/director-european-strategic-communications-amsterdam-186061)
-
-### Data Analist @ Univé
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** artificial intelligence
-- [Apply / details](https://www.arbeitnow.com/jobs/data-analist-zwolle-290117)
-
-### Quantitative Researcher - 2027 Graduates @ Graviton Research Capital LLP
+### Senior Data Engineering Consultant @ Conflux
 - **Source:** Arbeitnow · **Pay:** 💰 paid
 - **Matched:** machine learning
-- [Apply / details](https://www.arbeitnow.com/jobs/quantitative-researcher-2027-graduates-amsterdam-453386)
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-data-engineering-consultant-utrecht-151402)
 
-### Afstuderen Artificial Intelligence: Ontwikkel de AI-generator voor Account Business Reviews @ Voortman Steel Machinery
+### Senior Campus Recruiter @ Imc
 - **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** artificial intelligence
-- [Apply / details](https://www.arbeitnow.com/jobs/afstuderen-artificial-intelligence-ontwikkel-de-ai-generator-voor-account-business-reviews-rijssen-147726)
+- **Matched:** machine learning
+- [Apply / details](https://www.arbeitnow.com/jobs/senior-campus-recruiter-amsterdam-216692)
 
-### Platform Engineer @ Catawiki
+### DevOps Engineer @ Rentman
 - **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** artificial intelligence
-- [Apply / details](https://www.arbeitnow.com/jobs/platform-engineer-amsterdam-274679)
+- **Matched:** test automation
+- [Apply / details](https://www.arbeitnow.com/jobs/devops-engineer-utrecht-94038)
+
+### Lead Solutions Architect – MedTech (Strategic Account) @ databricks
+- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
+- **Matched:** genai, mlops
+- [Apply / details](https://www.arbeitnow.com/jobs/lead-solutions-architect-medtech-strategic-account-amsterdam-206298)
 
 ---
 _No-interview flags are keyword heuristics — always verify the actual hiring process in the posting before applying._

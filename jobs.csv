@@ -1,52 +1,27 @@
 Title,Company,Source,Pay,Matched keywords,No-interview signals,URL
-"Senior Product Manager II, Consumer (all genders)",hellofresh,Arbeitnow,paid,genai,,https://www.arbeitnow.com/jobs/senior-product-manager-ii-consumer-all-genders-berlin-berlin-142695
-Staff Forward Deployed Engineer,databricks,Arbeitnow,unknown,mlops; ml/ai,,https://www.arbeitnow.com/jobs/staff-forward-deployed-engineer-berlin-munich-478639
-Senior Product Engineer,Cosuno,Arbeitnow,paid,artificial intelligence,,https://www.arbeitnow.com/jobs/senior-product-engineer-berlin-253211
-"Account Executive (Mid-Market) (Fluent In German) (Position located in Berlin, Germany)",knowbe4,Arbeitnow,unknown,artificial intelligence,,https://www.arbeitnow.com/jobs/account-executive-mid-market-fluent-in-german-position-located-in-berlin-germany-167994
-Senior Data Engineer,Nebius,Arbeitnow,paid,ai/ml,,https://www.arbeitnow.com/jobs/senior-data-engineer-176412
-Solutions Architect,mongodb,Arbeitnow,unknown,generative ai; ai/ml,,https://www.arbeitnow.com/jobs/solutions-architect-269176
-Solutions Architect,mongodb,Arbeitnow,unknown,generative ai; ai/ml,,https://www.arbeitnow.com/jobs/solutions-architect-437467
-Senior Solutions Architect,mongodb,Arbeitnow,unknown,generative ai; ai/ml,,https://www.arbeitnow.com/jobs/senior-solutions-architect-317852
-Software Engineer – Cloud Services – Rust,tensordyne,Arbeitnow,paid,artificial intelligence; generative ai,,https://www.arbeitnow.com/jobs/software-engineer-cloud-services-rust-munich-281854
-Ops/Developer Platform Engineer,tensordyne,Arbeitnow,paid,artificial intelligence; generative ai; mlops,,https://www.arbeitnow.com/jobs/ops-developer-platform-engineer-munich-315347
-Junior AI Application Engineer – AI Products (LLM & RAG) (m/f/d),Machine Learning Reply,Arbeitnow,unknown,machine learning; llm; generative ai; genai,,https://www.arbeitnow.com/jobs/junior-ai-application-engineer-ai-products-llm-rag-munich-166653
-AI Application Engineer – AI Products (LLM & RAG) (m/f/d),Machine Learning Reply,Arbeitnow,paid,machine learning; llm; generative ai; genai,,https://www.arbeitnow.com/jobs/ai-application-engineer-ai-products-llm-rag-berlin-32333
-DevOps/ML Engineer (m/f/d),Machine Learning Reply,Arbeitnow,unknown,ml engineer; machine learning; artificial intelligence; mlops,,https://www.arbeitnow.com/jobs/devops-ml-engineer-munich-333786
-Product Manager,Lio,Arbeitnow,unknown,llm,,https://www.arbeitnow.com/jobs/product-manager-munich-397336
-Product Manager,Lio,Arbeitnow,unknown,llm,,https://www.arbeitnow.com/jobs/product-manager-munich-341267
-Test Automation Engineer (m/f/d),Quantum-Systems GmbH,Arbeitnow,unknown,automation engineer; test automation,,https://www.arbeitnow.com/jobs/test-automation-engineer-gilching-9716
-Staff Application Security Engineer,Samsara,Arbeitnow,paid,llm,,https://www.arbeitnow.com/jobs/staff-application-security-engineer-342314
-Junior Data Scientist & Marketing Effectiveness - Jan-March 2027 Start date,Ekimetrics,Arbeitnow,paid,machine learning; data scientist,,https://www.arbeitnow.com/jobs/junior-data-scientist-marketing-effectiveness-jan-march-2027-start-date-london-325997
-"Staff Data Scientist, Pricing",Airalo,Arbeitnow,paid,machine learning; data scientist,,https://www.arbeitnow.com/jobs/staff-data-scientist-pricing-united-kingdom-83215
-Chief of Staff,Nous,Arbeitnow,paid,llm,,https://www.arbeitnow.com/jobs/chief-of-staff-london-453414
-Product Manager,Nous,Arbeitnow,paid,llm,,https://www.arbeitnow.com/jobs/product-manager-london-311824
-Senior Data Scientist - Full Stack,Clearscoretechnologylimited,Arbeitnow,paid,machine learning; deep learning; data scientist; ml/ai,,https://www.arbeitnow.com/jobs/senior-data-scientist-full-stack-london-355881
-Senior/Tech Lead Backend Engineer (Managed Kubernetes),Nebius,Arbeitnow,paid,ai/ml,,https://www.arbeitnow.com/jobs/senior-tech-lead-backend-engineer-managed-kubernetes-7631
-Senior Software Engineer (Stream Processing),Nebius,Arbeitnow,paid,ai/ml,,https://www.arbeitnow.com/jobs/senior-software-engineer-stream-processing-290179
-Senior Data Engineer,Nebius,Arbeitnow,paid,ai/ml,,https://www.arbeitnow.com/jobs/senior-data-engineer-488090
-Senior GTM System Builder,mewssystems,Arbeitnow,paid,llm,,https://www.arbeitnow.com/jobs/senior-gtm-system-builder-23406
-"Strategic Account Executive, UKI",Anaplan,Arbeitnow,paid,artificial intelligence,,https://www.arbeitnow.com/jobs/strategic-account-executive-uki-london-335969
-Senior ML Engineer,Anaplan,Arbeitnow,paid,ml engineer; artificial intelligence; mlops,,https://www.arbeitnow.com/jobs/senior-ml-engineer-manchester-228922
-"Enterprise Account Executive, FSI",Anaplan,Arbeitnow,paid,artificial intelligence,,https://www.arbeitnow.com/jobs/enterprise-account-executive-fsi-london-220562
-Consultant Data Analyst Marketing - F/H,Vmlenterprisesolutions,Arbeitnow,unknown,machine learning; deep learning,,https://www.arbeitnow.com/jobs/consultant-data-analyst-marketing-f-h-paris-299001
-"Solutions Architect, EMEA Startups — France",databricks,Arbeitnow,unknown,machine learning; genai,,https://www.arbeitnow.com/jobs/solutions-architect-emea-startups-france-paris-297503
-Senior Solutions Architect (EDW Enterprise Data Warehouse Migrations),databricks,Arbeitnow,unknown,machine learning,,https://www.arbeitnow.com/jobs/senior-solutions-architect-edw-enterprise-data-warehouse-migrations-paris-57396
-"Manager, Field Engineering France  - Specialist Solutions Architects",databricks,Arbeitnow,unknown,machine learning,,https://www.arbeitnow.com/jobs/manager-field-engineering-france-specialist-solutions-architects-paris-373527
-Consultant SEO Senior - F/H - CDI,wppmedia,Arbeitnow,paid,llm,,https://www.arbeitnow.com/jobs/consultant-seo-senior-f-h-cdi-paris-498171
-Forward Deployed Engineer - EMEA,gitlab,Arbeitnow,paid,artificial intelligence,,https://www.arbeitnow.com/jobs/remote-forward-deployed-engineer-emea-133259
-AI Architect,shifttechnology,Arbeitnow,unpaid,llm,,https://www.arbeitnow.com/jobs/ai-architect-260070
-CTO Founder Associate - internship,Alan,Arbeitnow,paid,artificial intelligence,,https://www.arbeitnow.com/jobs/cto-founder-associate-internship-paris-france-374798
-Experienced/Senior Machine Learning Engineer - Squad Distribute,Doctrine,Arbeitnow,paid,machine learning; deep learning; artificial intelligence; nlp; genai; mlops,,https://www.arbeitnow.com/jobs/experienced-senior-machine-learning-engineer-squad-distribute-paris-471843
-Experienced/Senior Fullstack Engineer - Squad Scribe,Doctrine,Arbeitnow,paid,machine learning,,https://www.arbeitnow.com/jobs/experienced-senior-fullstack-engineer-squad-scribe-paris-127612
-Engineering Manager - Productivity,Doctrine,Arbeitnow,paid,llm; nlp,,https://www.arbeitnow.com/jobs/engineering-manager-productivity-paris-106100
-Confirmed Machine Learning Engineer (Productivity),Doctrine,Arbeitnow,paid,machine learning; deep learning; llm; nlp,,https://www.arbeitnow.com/jobs/confirmed-machine-learning-engineer-productivity-paris-282873
-Account Executive Italy,Doctrine,Arbeitnow,paid,natural language processing; genai,,https://www.arbeitnow.com/jobs/account-executive-italy-paris-442664
-Senior Product Manager,Deliverect,Arbeitnow,paid,artificial intelligence,,https://www.arbeitnow.com/jobs/senior-product-manager-paris-6632
-Stage IA/ML Engineer 100% R&D - agentic AI,Ekimetrics,Arbeitnow,paid,ml engineer; machine learning; deep learning; llm; generative ai; computer vision; data scientist,,https://www.arbeitnow.com/jobs/stage-ia-ml-engineer-100-rd-agentic-ai-paris-36354
-AI/ML Engineer,Jobgether,Arbeitnow,paid,ml engineer; machine learning; deep learning; llm; natural language processing; generative ai; ai/ml,,https://www.arbeitnow.com/jobs/ai-ml-engineer-switzerland-476244
-AI Tooling Engineer,Jobgether,Arbeitnow,unknown,llm,,https://www.arbeitnow.com/jobs/ai-tooling-engineer-switzerland-335267
-Account Manager,Jobgether,Arbeitnow,paid,machine learning,,https://www.arbeitnow.com/jobs/account-manager-switzerland-80335
-Senior Reinforcement Learning Engineer,Anybotics,Arbeitnow,paid,machine learning,,https://www.arbeitnow.com/jobs/senior-reinforcement-learning-engineer-zurich-switzerland-391236
-Senior Android Developer (Remote),Finom,Arbeitnow,paid,llm; ml/ai,,https://www.arbeitnow.com/jobs/senior-android-developer-remote-netherlands-66785
-Senior Android Developer (Remote),Finom,Arbeitnow,paid,llm; ml/ai,,https://www.arbeitnow.com/jobs/senior-android-developer-remote-netherlands-427639
-"Upstart: DevOps Engineer II, Cloud Platform",Upstart,WeWorkRemotely,paid,machine learning,,https://weworkremotely.com/remote-jobs/upstart-devops-engineer-ii-cloud-platform
+Senior Software Engineer LATAM,Wagmo,RemoteOK,paid,llm,,https://remoteOK.com/remote-jobs/remote-senior-software-engineer-latam-wagmo-1137572
+"Senior MLOps Engineer, Buyer",Vinteden,Arbeitnow,paid,data scientist; mlops,,https://www.arbeitnow.com/jobs/senior-mlops-engineer-buyer-berlin-63714
+Risk and Change Manager - Alpha Delivery PMO,Proxima Fusion GmbH,Arbeitnow,paid,machine learning,,https://www.arbeitnow.com/jobs/risk-and-change-manager-alpha-delivery-pmo-munich-211868
+People Operations Manager,Proxima Fusion GmbH,Arbeitnow,paid,machine learning,,https://www.arbeitnow.com/jobs/people-operations-manager-munich-14781
+(Senior) GEO Manager (m/w/d),idealo internet GmbH,Arbeitnow,unknown,generative ai,,https://www.arbeitnow.com/jobs/senior-geo-manager-berlin-479275
+(Senior) GEO Manager (m/w/d),idealo internet GmbH,Arbeitnow,unknown,generative ai,,https://www.arbeitnow.com/jobs/senior-geo-manager-berlin-11690
+"Technical Product Manager, Integrations",Prior Labs,Arbeitnow,paid,machine learning,,https://www.arbeitnow.com/jobs/technical-product-manager-integrations-berlin-5388
+Software Engineer - Perception (m/f/d),Quantum-Systems GmbH,Arbeitnow,unknown,deep learning; computer vision,,https://www.arbeitnow.com/jobs/software-engineer-perception-gilching-137183
+Product Manager Intern (m/f/d),Sereact GmbH,Arbeitnow,paid,artificial intelligence; ai/ml,,https://www.arbeitnow.com/jobs/product-manager-intern-stuttgart-343244
+Senior AI Engineer,summ.ai,Arbeitnow,unknown,ai engineer; llm,,https://www.arbeitnow.com/jobs/senior-ai-engineer-munich-6103
+Senior GTM Systems AI and Automation Engineer,Camunda,Arbeitnow,paid,llm; automation engineer,,https://www.arbeitnow.com/jobs/remote-senior-gtm-systems-ai-and-automation-engineer-436740
+"Senior Financial Crime Investigator, Out of hours, Business Banking",Monzo,Arbeitnow,paid,artificial intelligence,,https://www.arbeitnow.com/jobs/senior-financial-crime-investigator-out-of-hours-business-banking-179422
+"Senior Financial Crime Investigator, Business Banking",Monzo,Arbeitnow,paid,artificial intelligence,,https://www.arbeitnow.com/jobs/senior-financial-crime-investigator-business-banking-216863
+Workday Financial Manager,Thought Machine,Arbeitnow,unknown,generative ai,,https://www.arbeitnow.com/jobs/workday-financial-manager-london-130769
+Senior Business Development Associate,Ideo,Arbeitnow,unpaid,genai,,https://www.arbeitnow.com/jobs/senior-business-development-associate-london-90837
+Operations Lead,Magentic,Arbeitnow,paid,artificial intelligence,,https://www.arbeitnow.com/jobs/operations-lead-london-25269
+Production Support Engineer II - UK,Marqeta Inc,Arbeitnow,paid,artificial intelligence,,https://www.arbeitnow.com/jobs/production-support-engineer-ii-uk-london-60427
+"Software Engineer, Enterprise",scaleai,Arbeitnow,unknown,generative ai; genai,,https://www.arbeitnow.com/jobs/software-engineer-enterprise-london-314594
+Senior Applied Researcher,Coreweaveu,Arbeitnow,paid,machine learning; mlops,,https://www.arbeitnow.com/jobs/senior-applied-researcher-london-43817
+Ops Associate,Parallel,Arbeitnow,unknown,generative ai,,https://www.arbeitnow.com/jobs/ops-associate-paris-338075
+"Director, M&A - France",Banyansoftware,Arbeitnow,paid,artificial intelligence,,https://www.arbeitnow.com/jobs/director-ma-france-paris-paris-172963
+Senior Applied Scientist - AI Platform,Datadog,Arbeitnow,paid,llm,,https://www.arbeitnow.com/jobs/senior-applied-scientist-ai-platform-paris-134468
+"Senior MLOps Engineer, Buyer",Vinteden,Arbeitnow,paid,data scientist; mlops,,https://www.arbeitnow.com/jobs/senior-mlops-engineer-buyer-amsterdam-451225
+AI Engineer,12Build,Arbeitnow,paid,ai engineer; genai,,https://www.arbeitnow.com/jobs/ai-engineer-nijverdal-61682
+Web & Mobile Full Stack Developer,Learned,Arbeitnow,paid,llm,,https://www.arbeitnow.com/jobs/web-mobile-full-stack-developer-utrecht-168136
+"PagerDuty: Senior Director, Field Enablement",PagerDuty,WeWorkRemotely,unpaid,generative ai,,https://weworkremotely.com/remote-jobs/pagerduty-senior-director-field-enablement

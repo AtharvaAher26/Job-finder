@@ -183,7 +183,7 @@ def fetch_arbeitnow() -> list[dict]:
             "id": f"an-{j.get('slug', '')}",
             "title": j.get("title", "Untitled"),
             "company": j.get("company_name", ""),
-            "url": f"https://www.arbeitnow.com/jobs/{j.get('slug', '')}",
+            "url": j.get("url") or f"https://www.arbeitnow.com/jobs/{j.get('slug', '')}",
             "text": text,
             "hits": hits,
             "source": "Arbeitnow",

@@ -68,6 +68,41 @@ INTERVIEW_HEAVY_SIGNALS = [
     "culture fit interview", "behavioral interview",
 ]
 
+# Titles that are clearly not engineering/automation work. They stay in the
+# digest (the keyword may still match), but they never headline the
+# no-interview section — that slot is for roles he'd actually take.
+NON_ENGINEERING_TITLES = [
+    "sales", "account executive", "account manager", "business development",
+    "partnership", "growth manager", "growth marketing", "marketing",
+    "customer success", "customer enablement", "product designer",
+    "graphic designer", "visual designer", "accounting", "accountant",
+    "recruiter", "talent acquisition",
+]
+
+def looks_engineering(title: str) -> bool:
+    t = (title or "").lower()
+    return not any(
+        re.search(r"(?<![a-z0-9])" + re.escape(k) + r"(?![a-z0-9])", t)
+        for k in NON_ENGINEERING_TITLES
+    )
+
+# Internship markers, matched on the TITLE only, with letter boundaries so
+# "internal" and "international" never count as "intern". Deliberately
+# conservative: a missed internship costs less than a mislabelled senior role.
+INTERN_TITLE_RE = re.compile(
+    r"(?<![a-z])intern(s|ship|ships)?(?![a-z])"
+    r"|(?<![a-z])co-?op(?![a-z])"
+    r"|(?<![a-z])trainee(?![a-z])"
+    r"|(?<![a-z])apprentice(ship)?(?![a-z])"
+    r"|working student|werkstudent|praktikum"
+    r"|graduate (trainee|program|programme)"
+    r"|summer intern",
+    re.IGNORECASE,
+)
+
+def is_internship(job: dict) -> bool:
+    return bool(INTERN_TITLE_RE.search(job.get("title") or ""))
+
 UNPAID_SIGNALS = ["unpaid", "volunteer", "no stipend", "without pay", "not paid"]
 PAID_SIGNALS = ["paid", "stipend", "salary", "compensation", "$", "€", "₹", "usd", "/hr",
                 "/hour", "per hour", "/month", "per month", "/year", "equity"]
@@ -406,7 +441,7 @@ def notify_telegram(summary: str, no_interview: list[dict],
 
 # ---------------------------------------------------------------- main
 def main() -> None:
-    print("[finder] build 2026-10-16d")  # version marker — check logs show this
+    print("[finder] build 2026-10-17a")  # version marker — check logs show this
     reset = "--reset" in sys.argv
     seen = set() if reset else load_seen()
 
@@ -428,13 +463,35 @@ def main() -> None:
     for j in matches:
         j["ni_score"], j["ni_hits"] = no_interview_score(j["text"])
         j["pay"] = pay_status(j["text"])
+        j["type"] = "internship" if is_internship(j) else "role"
 
-    no_interview = sorted([j for j in matches if j["ni_score"] > 0],
-                          key=lambda j: -j["ni_score"])
-    others = [j for j in matches if j["ni_score"] == 0]
+    # Internships-only mode: --internships flag or INTERNSHIP_MODE=1 in env
+    # (set it as a GitHub Actions variable/secret to make the daily digest
+    # internship-first for the March application window).
+    internships_only = ("--internships" in sys.argv
+                        or os.environ.get("INTERNSHIP_MODE") == "1")
+    if internships_only:
+        matches = [j for j in matches if j["type"] == "internship"]
+
+    internships = sorted(
+        [j for j in matches if j["type"] == "internship"],
+        key=lambda j: ({"paid": 0, "unknown": 1, "unpaid": 2}[j["pay"]],
+                       -j["ni_score"]))
+
+    no_interview = sorted(
+        [j for j in matches
+         if j["ni_score"] > 0 and looks_engineering(j["title"])],
+        key=lambda j: -j["ni_score"])
+    others = [j for j in matches
+              if j["ni_score"] == 0 or not looks_engineering(j["title"])]
+    if not internships_only:
+        # Internships get their own section below — don't list them twice.
+        no_interview = [j for j in no_interview if j["type"] != "internship"]
+        others = [j for j in others if j["type"] != "internship"]
 
     now = datetime.now(timezone.utc).astimezone().strftime("%d %b %Y, %I:%M %p %Z")
-    lines = [f"# Job digest — {now}", "",
+    lines = [f"# Job digest — {now}"
+             + (" (internships only)" if internships_only else ""), "",
              f"Scanned {len(all_jobs)} postings across 5 sources, {len(fresh)} new, "
              f"{len(matches)} matched your roles"
              + (f" ({skipped_applied} skipped — already in your tracker)"
@@ -451,7 +508,8 @@ def main() -> None:
             pay = {"paid": "💰 paid", "unpaid": "🆓 unpaid",
                    "unknown": "❓ pay unknown"}[j["pay"]]
             co = f" @ {j['company']}" if j["company"] else ""
-            lines.append(f"### {j['title']}{co}")
+            tag = " 🎓" if j.get("type") == "internship" else ""
+            lines.append(f"### {j['title']}{co}{tag}")
             lines.append(f"- **Source:** {j['source']} · **Pay:** {pay}")
             lines.append(f"- **Matched:** {', '.join(j['hits'])}")
             if j["ni_hits"]:
@@ -459,6 +517,8 @@ def main() -> None:
             lines.append(f"- [Apply / details]({j['url']})")
             lines.append("")
 
+    if internships and not internships_only:
+        render(internships, "🎓 Internships (paid first)")
     render(no_interview, "🎯 Likely test/resume-based selection (no-interview signals)")
     render(others, "📌 Other matching roles (check selection process yourself)")
 
@@ -471,10 +531,10 @@ def main() -> None:
     csv_path = BASE / "jobs.csv"
     with csv_path.open("w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        w.writerow(["Title", "Company", "Source", "Pay",
+        w.writerow(["Title", "Company", "Source", "Type", "Pay",
                     "Matched keywords", "No-interview signals", "URL"])
         for j in no_interview + others:
-            w.writerow([j["title"], j["company"], j["source"], j["pay"],
+            w.writerow([j["title"], j["company"], j["source"], j["type"], j["pay"],
                         "; ".join(j["hits"]), "; ".join(j["ni_hits"]),
                         j["url"]])
     print(f"csv -> {csv_path} ({len(matches)} rows)")
@@ -483,9 +543,18 @@ def main() -> None:
 
     # Telegram summary (chunk-safe: one short message + the digest as a file)
     summary_lines = [
-        f"💼 *Job digest — {len(matches)} new matches*",
+        f"💼 *Job digest — {len(matches)} new matches*"
+        + (" (internships only)" if internships_only else ""),
         "",
     ]
+    if internships:
+        summary_lines.append("🎓 *Internships (paid first):*")
+        for j in internships[:8]:
+            co = f" @ {j['company']}" if j["company"] else ""
+            pay = {"paid": "💰", "unpaid": "🆓 unpaid",
+                   "unknown": "❓"}[j["pay"]]
+            summary_lines.append(f"• [{j['title']}{co}]({j['url']}) {pay}")
+        summary_lines.append("")
     if no_interview:
         summary_lines.append("🎯 *Likely no-interview picks:*")
         for j in no_interview[:10]:

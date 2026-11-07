@@ -142,5 +142,87 @@ def test_cap_respected(monkeypatch):
     assert all(j["verified"] is None for j in jobs[fj.VERIFY_CAP:])
 
 
+# ---------------------------------------------------------------- eligibility
+# Grounded in the three Nov 7 headline picks that all failed after the
+# digest shipped (full posting texts re-read 2026-11-07).
+def test_fiducial_like_demoted_on_visa(monkeypatch):
+    job = make_job(title="Internship - Programming & Automation",
+                   company="Fiducial")
+    patch_fetch(monkeypatch, lambda url: (
+        "WE CANNOT PROVIDE VISA SPONSORSHIP. Preferred starting date: ASAP. "
+        "Location: Aerospace Innovation Hub, Delft, the Netherlands. "
+        "Flexible working hours and the option to work from home 2 days per "
+        "week where practical. 1000 euro monthly compensation."))
+    fj.verify_headlines([job])
+    assert job["verified"] is False
+    assert "visa" in job["verify_note"]
+    live, dead = fj.partition_verified([job])
+    assert live == [] and dead == [job]
+
+
+def test_distalmotion_like_demoted_on_degree(monkeypatch):
+    job = make_job(title="Edge AI & Computer Vision Intern",
+                   company="Distalmotion")
+    patch_fetch(monkeypatch, lambda url: (
+        "Requirements: Enrolled in a Master’s degree or final year of a "
+        "Bachelor’s program in Computer Science, Robotics, Embedded Systems."))
+    fj.verify_headlines([job])
+    assert job["verified"] is False
+    assert "Master" in job["verify_note"] or "final-year" in job["verify_note"]
+
+
+def test_tomtom_like_demoted_on_dutch_enrolment_and_commute(monkeypatch):
+    job = make_job(title="Software Engineering Intern - AI Platform",
+                   company="Tomtom")
+    patch_fetch(monkeypatch, lambda url: (
+        "Being enrolled in a Dutch university until at least September 2027. "
+        "Being located in Amsterdam or cities close by to be able to commute "
+        "to the office at least twice a week."))
+    fj.verify_headlines([job])
+    assert job["verified"] is False
+    assert "Dutch" in job["verify_note"]
+
+
+def test_genuine_remote_internship_stays_headline(monkeypatch):
+    job = make_job(title="AI Engineer Intern", company="Acme",
+                   pay="unknown")
+    patch_fetch(monkeypatch, lambda url: (
+        "Fully remote internship. Enrolled in a Bachelor's program in "
+        "Computer Science. This internship offers a stipend of $800 per month."))
+    fj.verify_headlines([job])
+    assert job["verified"] is True
+    assert job["pay"] == "paid"
+    assert job["verify_note"] == "" or "corrected" in job["verify_note"]
+
+
+def test_asap_start_only_is_warning_not_demotion(monkeypatch):
+    job = make_job(title="ML Intern", company="Acme")
+    patch_fetch(monkeypatch, lambda url: (
+        "Fully remote internship. Preferred starting date: ASAP. "
+        "Stipend paid monthly."))
+    fj.verify_headlines([job])
+    assert job["verified"] is True
+    assert "ASAP" in job["verify_note"]
+
+
+def test_onsite_interview_mention_does_not_warn(monkeypatch):
+    job = make_job(title="ML Intern", company="Acme")
+    patch_fetch(monkeypatch, lambda url: (
+        "Fully remote internship. The selection process includes an onsite "
+        "interview at our office."))
+    fj.verify_headlines([job])
+    assert job["verified"] is True
+    assert "on-site" not in job["verify_note"]
+
+
+def test_is_remote_ok_rejects_partial_wfh_and_commute():
+    assert fj.is_remote_ok(
+        "Flexible hours and the option to work from home 2 days per week") is False
+    assert fj.is_remote_ok(
+        "Located in Amsterdam to be able to commute to the office") is False
+    assert fj.is_remote_ok("Fully remote, work from anywhere") is True
+    assert fj.is_remote_ok("Remote-first team, async") is True
+
+
 if __name__ == "__main__":
     sys.exit(pytest.main([__file__, "-q"]))

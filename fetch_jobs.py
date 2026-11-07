@@ -163,6 +163,14 @@ def pay_status(text: str) -> str:
 def is_remote_ok(text: str) -> bool:
     """Keep remote-friendly or location-agnostic postings; drop explicit on-site."""
     t = text.lower()
+    # "work from home 2 days per week" is hybrid, not remote — but it
+    # contains the "work from home" signal below, so catch it first.
+    # (Fiducial, Nov 7 digest: this exact phrasing slipped the filter.)
+    if "fully remote" not in t:
+        if re.search(r"work from home (up to )?\d+ days?", t):
+            return False
+        if "commute" in t:
+            return False
     if any(s in t for s in ["remote", "work from home", "wfh", "distributed",
                             "anywhere", "worldwide", "async"]):
         return True
@@ -380,6 +388,63 @@ EXPIRED_MARKERS = [
     "job not found",
 ]
 
+# Eligibility blockers for Atharva's rules: remote-only, India-based,
+# 3rd-year B.E., internship target ~March 2027. Each pattern must name a
+# concrete blocker, not a vibe — a false fail demotes a real job, so
+# anything ambiguous is a warning (below), never a fail. Grounded in the
+# three Nov 7 headline picks that all failed after the digest shipped:
+# Fiducial (no visa sponsorship + 2 WFH days/week), Distalmotion
+# (Master's / final-year Bachelor's enrolment), Tomtom (Dutch university
+# enrolment + commute to the Amsterdam office twice a week).
+ELIGIBILITY_FAILS = [
+    (re.compile(r"cannot provide visa sponsorship", re.I),
+     "no visa sponsorship"),
+    (re.compile(r"no visa sponsorship", re.I), "no visa sponsorship"),
+    (re.compile(r"do not (provide|offer|sponsor)[^.]{0,40}visa", re.I),
+     "no visa sponsorship"),
+    (re.compile(r"visa sponsorship (is )?not (available|provided|offered)",
+                re.I), "no visa sponsorship"),
+    (re.compile(r"dutch university", re.I),
+     "requires enrolment in a Dutch university"),
+    (re.compile(r"university in the netherlands", re.I),
+     "requires enrolment in a Dutch university"),
+    (re.compile(r"enrolled in a master'?s (degree|program)", re.I),
+     "requires Master's enrolment"),
+    (re.compile(r"final year of a bachelor", re.I),
+     "requires final-year Bachelor's enrolment"),
+    (re.compile(r"commute to the office", re.I),
+     "requires commuting to the office"),
+    (re.compile(r"work from home (up to )?\d+ days? per week", re.I),
+     "only some days work-from-home (onsite the rest of the week)"),
+    (re.compile(r"\d+ days? (a|per) week in (the )?office", re.I),
+     "requires office days each week"),
+]
+
+# Ambiguous signals: worth flagging on the pick, never enough to demote.
+# "onsite interview" is a hiring step, not a workplace — excluded.
+ELIGIBILITY_WARNINGS = [
+    (re.compile(r"preferred starting date:\s*asap", re.I),
+     "ASAP start (your target is ~March 2027)"),
+    (re.compile(r"\bhybrid\b", re.I), "mentions hybrid working"),
+    (re.compile(r"\bon-?site\b(?!\s+interview)", re.I),
+     "mentions on-site working"),
+]
+
+
+def check_eligibility(text: str) -> tuple[str | None, list[str]]:
+    """Check full posting text against Atharva's eligibility rules.
+
+    Returns (fail_reason or None, [warning, ...]). Curly apostrophes
+    (Master’s) are normalised so the degree patterns still match.
+    """
+    low = (text or "").lower().replace("’", "'").replace("‘", "'")
+    for pattern, reason in ELIGIBILITY_FAILS:
+        if pattern.search(low):
+            return reason, []
+    warnings = [reason for pattern, reason in ELIGIBILITY_WARNINGS
+                if pattern.search(low)]
+    return None, warnings
+
 
 def fetch_page_text(url: str) -> str:
     """Fetch a posting page (redirects followed) and return its visible text.
@@ -393,10 +458,13 @@ def fetch_page_text(url: str) -> str:
 def verify_headlines(jobs: list[dict]) -> None:
     """Verify up to VERIFY_CAP headline picks in place.
 
-    Sets j["verified"]: True = page fetched and still looks open,
-    False = page gone / posting looks expired, None = could not check
-    (network error, bot wall, no URL, or beyond the cap).
-    Sets j["verify_note"] explaining dead verdicts and pay corrections.
+    Sets j["verified"]: True = page fetched, still looks open, and no
+    eligibility blocker found in the full text,
+    False = page gone / posting looks expired / hard eligibility blocker,
+    None = could not check (network error, bot wall, no URL, or beyond
+    the cap).
+    Sets j["verify_note"] explaining dead verdicts, eligibility blocks,
+    warnings and pay corrections.
     May also correct j["pay"] from the full posting text.
     Never raises — a failed check leaves the pick exactly where it was.
     """
@@ -428,13 +496,27 @@ def _verify_one(j: dict) -> None:
         j["verify_note"] = f"posting looks closed (“{marker}” on the page)"
         return
     j["verified"] = True
+    notes: list[str] = []
+    # Eligibility check against the full text: location, visa, enrolment
+    # country/level and start date are what the Nov 7 digest missed.
+    # A hard blocker demotes the pick exactly like a closed posting;
+    # warnings stay on the pick as a flag for Atharva to judge.
+    fail, warnings = check_eligibility(text)
+    if fail:
+        j["verified"] = False
+        j["verify_note"] = (f"doesn't fit your rules: {fail} "
+                            f"(full posting text)")
+        return
+    if warnings:
+        notes.append("check before applying: " + "; ".join(warnings))
     # Pay re-check against the full text: a snippet can miss the stipend
     # paragraph (or catch an "unpaid" mention that isn't about this role).
     full_pay = pay_status(text)
     if full_pay != "unknown" and full_pay != j.get("pay"):
-        j["verify_note"] = (f"pay corrected from snippet label "
-                            f"{j.get('pay')} → {full_pay} (full posting text)")
+        notes.append(f"pay corrected from snippet label "
+                     f"{j.get('pay')} → {full_pay} (full posting text)")
         j["pay"] = full_pay
+    j["verify_note"] = "; ".join(notes)
 
 
 def partition_verified(jobs: list[dict]) -> tuple[list[dict], list[dict]]:
@@ -600,7 +682,7 @@ def main() -> None:
                                     -j["ni_score"]))
     n_verified = sum(1 for j in headline if j.get("verified") is True)
     print(f"[verify] {n_verified}/{len(headline)} headline picks verified live"
-          + (f", {len(demoted)} demoted (looks closed)" if demoted else ""))
+          + (f", {len(demoted)} demoted (closed or ineligible)" if demoted else ""))
 
     now = datetime.now(timezone.utc).astimezone().strftime("%d %b %Y, %I:%M %p %Z")
     lines = [f"# Job digest — {now}"
@@ -639,7 +721,7 @@ def main() -> None:
     render(others, "📌 Other matching roles (check selection process yourself)")
 
     if demoted:
-        lines.append(f"## ⚠️ Couldn't verify / possibly closed ({len(demoted)})")
+        lines.append(f"## ⚠️ Demoted — closed, or doesn't fit your rules ({len(demoted)})")
         lines.append("")
         for j in demoted:
             co = f" @ {j['company']}" if j["company"] else ""
@@ -652,7 +734,8 @@ def main() -> None:
 
     lines += ["---",
               "_✔ verified = the posting page was fetched live during this run and "
-              "still looks open; pay labels may have been corrected from the full text._",
+              "still looks open and no eligibility blocker was found in the "
+              "full text; pay labels may have been corrected from the full text._",
               "_No-interview flags are keyword heuristics — always verify the actual "
               "hiring process in the posting before applying._"]
     DIGEST_FILE.write_text("\n".join(lines))

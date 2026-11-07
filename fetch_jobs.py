@@ -357,6 +357,93 @@ def fetch_hn() -> list[dict]:
     return jobs
 
 
+# ---------------------------------------------------------------- verification
+# Headline picks (the 🎓 internships + 🎯 no-interview sections) get one live
+# fetch each before the digest goes out: dead postings are demoted out of the
+# headline sections and pay labels are re-checked against the full posting
+# text instead of the short search snippet that produced them.
+VERIFY_CAP = 12  # max page fetches per run — bounds the added runtime
+
+# Phrases boards show when a posting is gone. Deliberately narrow: a false
+# "dead" verdict demotes a real job, which is worse than a missed demotion.
+EXPIRED_MARKERS = [
+    "job no longer available",
+    "no longer available",
+    "no longer accepting applications",
+    "this job has expired",
+    "job has expired",
+    "posting has expired",
+    "position has been filled",
+    "position is no longer available",
+    "this listing is no longer active",
+    "applications are now closed",
+    "job not found",
+]
+
+
+def fetch_page_text(url: str) -> str:
+    """Fetch a posting page (redirects followed) and return its visible text.
+    Raises on HTTP/network errors — the caller decides what they mean."""
+    req = urllib.request.Request(url, headers=UA)
+    with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
+        raw = resp.read(2_000_000).decode("utf-8", "replace")
+    return strip_html(raw)
+
+
+def verify_headlines(jobs: list[dict]) -> None:
+    """Verify up to VERIFY_CAP headline picks in place.
+
+    Sets j["verified"]: True = page fetched and still looks open,
+    False = page gone / posting looks expired, None = could not check
+    (network error, bot wall, no URL, or beyond the cap).
+    Sets j["verify_note"] explaining dead verdicts and pay corrections.
+    May also correct j["pay"] from the full posting text.
+    Never raises — a failed check leaves the pick exactly where it was.
+    """
+    for j in jobs:
+        j.setdefault("verified", None)
+        j.setdefault("verify_note", "")
+    for j in jobs[:VERIFY_CAP]:
+        _verify_one(j)
+
+
+def _verify_one(j: dict) -> None:
+    url = j.get("url") or ""
+    if not url.startswith("http"):
+        return  # nothing fetchable — leave unchecked
+    try:
+        text = fetch_page_text(url)
+    except urllib.error.HTTPError as e:
+        if e.code in (404, 410):
+            j["verified"] = False
+            j["verify_note"] = f"posting page returned HTTP {e.code}"
+        # other HTTP errors (403 bot walls, 500s) prove nothing — unchecked
+        return
+    except Exception:
+        return  # timeout / DNS / TLS — unchecked, never crash the digest
+    low = text.lower()
+    marker = next((m for m in EXPIRED_MARKERS if m in low), None)
+    if marker:
+        j["verified"] = False
+        j["verify_note"] = f"posting looks closed (“{marker}” on the page)"
+        return
+    j["verified"] = True
+    # Pay re-check against the full text: a snippet can miss the stipend
+    # paragraph (or catch an "unpaid" mention that isn't about this role).
+    full_pay = pay_status(text)
+    if full_pay != "unknown" and full_pay != j.get("pay"):
+        j["verify_note"] = (f"pay corrected from snippet label "
+                            f"{j.get('pay')} → {full_pay} (full posting text)")
+        j["pay"] = full_pay
+
+
+def partition_verified(jobs: list[dict]) -> tuple[list[dict], list[dict]]:
+    """Split a section into (still headline-worthy, verified-dead)."""
+    live = [j for j in jobs if j.get("verified") is not False]
+    dead = [j for j in jobs if j.get("verified") is False]
+    return live, dead
+
+
 # ---------------------------------------------------------------- telegram
 def _tg_post(token: str, method: str, fields: dict) -> None:
     data = urllib.parse.urlencode(fields).encode()
@@ -489,6 +576,32 @@ def main() -> None:
         no_interview = [j for j in no_interview if j["type"] != "internship"]
         others = [j for j in others if j["type"] != "internship"]
 
+    # ---- headline verification: fetch each headline pick's posting live.
+    # Dead postings are demoted to a subsection at the end; pay labels are
+    # corrected from the full posting text. Unchecked picks stay in place.
+    for j in matches:
+        j.setdefault("verified", None)
+        j.setdefault("verify_note", "")
+    headline, _hids = [], set()
+    for j in internships + no_interview:
+        if j["id"] not in _hids:
+            _hids.add(j["id"])
+            headline.append(j)
+    verify_headlines(headline)
+    internships, _dead_i = partition_verified(internships)
+    no_interview, _dead_n = partition_verified(no_interview)
+    demoted, _dids = [], set()
+    for j in _dead_i + _dead_n:
+        if j["id"] not in _dids:
+            _dids.add(j["id"])
+            demoted.append(j)
+    # a corrected pay label can change the paid-first ordering
+    internships.sort(key=lambda j: ({"paid": 0, "unknown": 1, "unpaid": 2}[j["pay"]],
+                                    -j["ni_score"]))
+    n_verified = sum(1 for j in headline if j.get("verified") is True)
+    print(f"[verify] {n_verified}/{len(headline)} headline picks verified live"
+          + (f", {len(demoted)} demoted (looks closed)" if demoted else ""))
+
     now = datetime.now(timezone.utc).astimezone().strftime("%d %b %Y, %I:%M %p %Z")
     lines = [f"# Job digest — {now}"
              + (" (internships only)" if internships_only else ""), "",
@@ -510,8 +623,11 @@ def main() -> None:
             co = f" @ {j['company']}" if j["company"] else ""
             tag = " 🎓" if j.get("type") == "internship" else ""
             lines.append(f"### {j['title']}{co}{tag}")
-            lines.append(f"- **Source:** {j['source']} · **Pay:** {pay}")
+            verify = " · ✔ verified" if j.get("verified") is True else ""
+            lines.append(f"- **Source:** {j['source']} · **Pay:** {pay}{verify}")
             lines.append(f"- **Matched:** {', '.join(j['hits'])}")
+            if j.get("verify_note"):
+                lines.append(f"- **Verify note:** {j['verify_note']}")
             if j["ni_hits"]:
                 lines.append(f"- **No-interview signals:** {', '.join(j['ni_hits'])}")
             lines.append(f"- [Apply / details]({j['url']})")
@@ -522,7 +638,21 @@ def main() -> None:
     render(no_interview, "🎯 Likely test/resume-based selection (no-interview signals)")
     render(others, "📌 Other matching roles (check selection process yourself)")
 
+    if demoted:
+        lines.append(f"## ⚠️ Couldn't verify / possibly closed ({len(demoted)})")
+        lines.append("")
+        for j in demoted:
+            co = f" @ {j['company']}" if j["company"] else ""
+            tag = " 🎓" if j.get("type") == "internship" else ""
+            lines.append(f"### {j['title']}{co}{tag}")
+            lines.append(f"- **Source:** {j['source']} · "
+                         f"{j.get('verify_note') or 'posting could not be verified'}")
+            lines.append(f"- [Apply / details]({j['url']})")
+            lines.append("")
+
     lines += ["---",
+              "_✔ verified = the posting page was fetched live during this run and "
+              "still looks open; pay labels may have been corrected from the full text._",
               "_No-interview flags are keyword heuristics — always verify the actual "
               "hiring process in the posting before applying._"]
     DIGEST_FILE.write_text("\n".join(lines))
@@ -531,10 +661,17 @@ def main() -> None:
     csv_path = BASE / "jobs.csv"
     with csv_path.open("w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
-        w.writerow(["Title", "Company", "Source", "Type", "Pay",
+        w.writerow(["Title", "Company", "Source", "Type", "Pay", "Verified",
                     "Matched keywords", "No-interview signals", "URL"])
-        for j in no_interview + others:
+        csv_rows, _cids = [], set()
+        for j in internships + no_interview + others + demoted:
+            if j["id"] not in _cids:
+                _cids.add(j["id"])
+                csv_rows.append(j)
+        for j in csv_rows:
+            verified = {True: "yes", False: "no"}.get(j.get("verified"), "unchecked")
             w.writerow([j["title"], j["company"], j["source"], j["type"], j["pay"],
+                        verified,
                         "; ".join(j["hits"]), "; ".join(j["ni_hits"]),
                         j["url"]])
     print(f"csv -> {csv_path} ({len(matches)} rows)")
@@ -553,13 +690,21 @@ def main() -> None:
             co = f" @ {j['company']}" if j["company"] else ""
             pay = {"paid": "💰", "unpaid": "🆓 unpaid",
                    "unknown": "❓"}[j["pay"]]
-            summary_lines.append(f"• [{j['title']}{co}]({j['url']}) {pay}")
+            mark = " ✔" if j.get("verified") is True else ""
+            summary_lines.append(f"• [{j['title']}{co}]({j['url']}) {pay}{mark}")
         summary_lines.append("")
     if no_interview:
         summary_lines.append("🎯 *Likely no-interview picks:*")
         for j in no_interview[:10]:
             co = f" @ {j['company']}" if j["company"] else ""
-            summary_lines.append(f"• [{j['title']}{co}]({j['url']})")
+            mark = " ✔" if j.get("verified") is True else ""
+            summary_lines.append(f"• [{j['title']}{co}]({j['url']}){mark}")
+        summary_lines.append("")
+    if headline:
+        summary_lines.append(
+            f"_✔ {n_verified} of {len(headline)} headline picks verified live"
+            + (f"; {len(demoted)} looked closed and were demoted._"
+               if demoted else "._"))
         summary_lines.append("")
     summary_lines.append(
         f"_{len(others)} more matches in the attached file. "

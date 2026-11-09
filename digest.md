@@ -1,222 +1,147 @@
-# Job digest — 08 Nov 2026, 10:38 AM UTC
+# Job digest — 09 Nov 2026, 11:54 AM UTC
 
-Scanned 150 postings across 5 sources, 49 new, 42 matched your roles.
+Scanned 134 postings across 5 sources, 30 new, 27 matched your roles.
 
 ## 🎯 Likely test/resume-based selection (no-interview signals) (0)
 
 _None this run._
 
-## 📌 Other matching roles (check selection process yourself) (42)
+## 📌 Other matching roles (check selection process yourself) (27)
 
-### AI Developer @ Salvo Software
-- **Source:** RemoteOK · **Pay:** ❓ pay unknown
-- **Matched:** llm
-- [Apply / details](https://remoteOK.com/remote-jobs/remote-ai-developer-salvo-software-1137701)
-
-### Staff Software Engineer - OpenTelemetry Python instrumentation | Germany | Remote @ grafanalabs
+### Investment Operations & Trading Manager (m/w/d) @ BIT Capital GmbH
 - **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** generative ai
-- [Apply / details](https://www.arbeitnow.com/jobs/companies/grafanalabs/staff-software-engineer-opentelemetry-python-instrumentation-germany-remote-427337)
+- **Matched:** llm
+- [Apply / details](https://www.arbeitnow.com/jobs/companies/bit-capital-gmbh/investment-operations-trading-manager-berlin-270088)
 
-### Senior Applied Value Engineer @ celonis
+### Senior AI Engineer @ XALT Business Consulting GmbH
+- **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** ai engineer, machine learning, deep learning, llm
+- [Apply / details](https://www.arbeitnow.com/jobs/companies/xalt-business-consulting-gmbh/senior-ai-engineer-munich-73725)
+
+### Software Engineer - Simulation Platform @ Proxima Fusion GmbH
+- **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** machine learning
+- [Apply / details](https://www.arbeitnow.com/jobs/companies/proxima-fusion-gmbh/software-engineer-simulation-platform-munich-468703)
+
+### Senior Integration Engineer @ Proxima Fusion GmbH
+- **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** machine learning
+- [Apply / details](https://www.arbeitnow.com/jobs/companies/proxima-fusion-gmbh/senior-integration-engineer-munich-60414)
+
+### Professional Services Consultant - AI Security @ Catonetworks
+- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
+- **Matched:** llm, ai/ml
+- [Apply / details](https://www.arbeitnow.co.uk/jobs/companies/catonetworks/professional-services-consultant-ai-security-london-312994)
+
+### Backend Engineer - Partner Flow @ iwoca
 - **Source:** Arbeitnow · **Pay:** 🆓 unpaid
-- **Matched:** artificial intelligence, llm, ml/ai
-- [Apply / details](https://www.arbeitnow.com/jobs/companies/celonis/senior-applied-value-engineer-munich-405479)
+- **Matched:** data scientist
+- [Apply / details](https://www.arbeitnow.co.uk/jobs/companies/iwoca/backend-engineer-partner-flow-london-201344)
 
-### Data Platform Engineer (Mid-Level) @ sumup
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** ai/ml
-- [Apply / details](https://www.arbeitnow.com/jobs/companies/sumup/data-platform-engineer-mid-level-berlin-396788)
+### Senior Analytics Engineer @ Numan
+- **Source:** Arbeitnow · **Pay:** 🆓 unpaid
+- **Matched:** llm, data scientist
+- [Apply / details](https://www.arbeitnow.co.uk/jobs/companies/numan/senior-analytics-engineer-london-366713)
 
-### Expert Solution Architect, AI & Enterprise (all genders) @ Thorit
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** llm
-- [Apply / details](https://www.arbeitnow.com/jobs/companies/thorit/expert-solution-architect-ai-enterprise-all-genders-boblingen-334130)
-
-### Senior Automation Engineer  - UiPath @ roboyo
-- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** automation engineer, test automation, rpa
-- [Apply / details](https://www.arbeitnow.com/jobs/companies/roboyo/senior-automation-engineer-uipath-munich-27512)
-
-### Legal Engineer - Tax & Audit, Munich @ Legora
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** generative ai
-- [Apply / details](https://www.arbeitnow.com/jobs/companies/legora/legal-engineer-tax-audit-munich-281859)
-
-### Staff Software Engineer, Agentic Platform @ tide
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** generative ai
-- [Apply / details](https://www.arbeitnow.com/jobs/companies/tide/staff-software-engineer-agentic-platform-berlin-386674)
-
-### Senior Staff Software Engineer, Agentic Platform @ tide
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** llm
-- [Apply / details](https://www.arbeitnow.com/jobs/companies/tide/senior-staff-software-engineer-agentic-platform-berlin-102006)
-
-### Senior / Lead Program Manager @ Nebius
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** ai/ml
-- [Apply / details](https://www.arbeitnow.com/jobs/companies/nebius/senior-lead-program-manager-berlin-17627)
-
-### Junior AI-Automation Specialist (m/w/d) – vor Ort in Dortmund @ ATZ AG
+### Principal Engineer - Facades / External Walls @ Jensenhughes
 - **Source:** Arbeitnow · **Pay:** 💰 paid
 - **Matched:** artificial intelligence
-- [Apply / details](https://www.arbeitnow.com/jobs/companies/atz-ag/junior-ai-automation-specialist-vor-ort-in-dortmund-160104)
+- [Apply / details](https://www.arbeitnow.co.uk/jobs/companies/jensenhughes/principal-engineer-facades-external-walls-edinburgh-glasgow-64744)
 
-### Senior Forward Deployed Platform Engineer (m/w/d) @ Recare Deutschland GmbH
+### Principal Software Engineer (Hybrid) @ 8Thlightrebuild
+- **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** nlp, computer vision, mlops, ai/ml
+- [Apply / details](https://www.arbeitnow.co.uk/jobs/companies/8thlightrebuild/principal-software-engineer-hybrid-london-320621)
+
+### Lead Software Engineer (Hybrid) @ 8Thlightrebuild
+- **Source:** Arbeitnow · **Pay:** 💰 paid
+- **Matched:** nlp, computer vision, mlops, ai/ml
+- [Apply / details](https://www.arbeitnow.co.uk/jobs/companies/8thlightrebuild/lead-software-engineer-hybrid-london-313965)
+
+### Senior Delivery Partner Manager, Services @ databricks
 - **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** llm, genai
-- [Apply / details](https://www.arbeitnow.com/jobs/companies/recare-deutschland-gmbh/remote-senior-forward-deployed-platform-engineer-berlin-228990)
+- **Matched:** machine learning
+- [Apply / details](https://www.arbeitnow.co.uk/jobs/companies/databricks/senior-delivery-partner-manager-services-london-304467)
 
-### GTM Enablement - Partner Program @ ElevenLabs
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** llm
-- [Apply / details](https://www.arbeitnow.com/jobs/companies/elevenlabs/remote-gtm-enablement-partner-program-77337)
-
-### Account Executive - Enterprise - Insurance @ ElevenLabs
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** llm, generative ai
-- [Apply / details](https://www.arbeitnow.com/jobs/companies/elevenlabs/remote-account-executive-enterprise-insurance-426158)
-
-### Account Executive - Enterprise - Financial Services @ ElevenLabs
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** llm, generative ai
-- [Apply / details](https://www.arbeitnow.com/jobs/companies/elevenlabs/remote-account-executive-enterprise-financial-services-66166)
-
-### Account Manager - DACH @ ElevenLabs
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** ai/ml
-- [Apply / details](https://www.arbeitnow.com/jobs/companies/elevenlabs/account-manager-dach-germany-358238)
-
-### Staff Software Engineer - OpenTelemetry Python instrumentation | UK | Remote @ grafanalabs
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** generative ai
-- [Apply / details](https://www.arbeitnow.co.uk/jobs/companies/grafanalabs/staff-software-engineer-opentelemetry-python-instrumentation-uk-remote-85977)
-
-### AI Engineer @ Nexcade
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** ai engineer
-- [Apply / details](https://www.arbeitnow.co.uk/jobs/companies/nexcade/ai-engineer-london-416662)
-
-### Software engineer, generative AI (UK) @ Writer
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** generative ai
-- [Apply / details](https://www.arbeitnow.co.uk/jobs/companies/writer/software-engineer-generative-ai-uk-london-225087)
-
-### Lead product manager (UK) @ Writer
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** llm, generative ai, ai/ml
-- [Apply / details](https://www.arbeitnow.co.uk/jobs/companies/writer/lead-product-manager-uk-london-207502)
-
-### Security engineer, detection and response (UK) @ Writer
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** ai/ml
-- [Apply / details](https://www.arbeitnow.co.uk/jobs/companies/writer/security-engineer-detection-and-response-uk-london-463849)
-
-### Senior Commercial Counsel @ Deepgram
+### System Test Automation Engineer @ Wayve
 - **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** llm
-- [Apply / details](https://www.arbeitnow.co.uk/jobs/companies/deepgram/senior-commercial-counsel-london-248712)
+- **Matched:** machine learning, automation engineer, test automation
+- [Apply / details](https://www.arbeitnow.co.uk/jobs/companies/wayve/system-test-automation-engineer-london-united-kingdom-401378)
 
-### GM, Sales (EMEA) @ Deepgram
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** ai/ml
-- [Apply / details](https://www.arbeitnow.co.uk/jobs/companies/deepgram/gm-sales-emea-london-96318)
-
-### Research Staff, Voice AI Foundations [UK - Remote] @ Deepgram
+### Design Manager or Senior Design Manager - Norway (Stargate Norway - Narvik) @ Nscaleoperationsukltd
 - **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** deep learning
-- [Apply / details](https://www.arbeitnow.co.uk/jobs/companies/deepgram/research-staff-voice-ai-foundations-uk-remote-london-419387)
+- **Matched:** artificial intelligence, generative ai
+- [Apply / details](https://www.arbeitnow.co.uk/jobs/companies/nscaleoperationsukltd/design-manager-or-senior-design-manager-norway-stargate-norway-narvik-370129)
 
-### Data Scientist @ Infinitesima
+### ML Runtime Engineer @ Loftorbital
 - **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** machine learning, data scientist
-- [Apply / details](https://www.arbeitnow.co.uk/jobs/companies/infinitesima/data-scientist-abingdon-335343)
+- **Matched:** machine learning
+- [Apply / details](https://www.arbeitnow.fr/jobs/companies/loftorbital/ml-runtime-engineer-toulouse-occitanie-67783)
 
-### Data Science Lead @ Infinitesima
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** machine learning, data scientist
-- [Apply / details](https://www.arbeitnow.co.uk/jobs/companies/infinitesima/data-science-lead-abingdon-171373)
-
-### Sales Engineer - France @ zscaler
+### Stage - Trading Application Support Specialist - Finance de Marché @ Horizontradingsolutions
 - **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** ai/ml
-- [Apply / details](https://www.arbeitnow.fr/jobs/companies/zscaler/sales-engineer-france-313072)
+- **Matched:** machine learning
+- [Apply / details](https://www.arbeitnow.fr/jobs/companies/horizontradingsolutions/stage-trading-application-support-specialist-finance-de-marche-paris-paris-117219)
 
-### Forward Deployment Strategist @ ILLUIN Technology
-- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** llm, nlp
-- [Apply / details](https://www.arbeitnow.fr/jobs/companies/illuin-technology/forward-deployment-strategist-puteaux-422626)
-
-### Spontaneous Application - Engineering @ Owkin
-- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** llm
-- [Apply / details](https://www.arbeitnow.fr/jobs/companies/owkin/spontaneous-application-engineering-paris-319436)
-
-### Mechatronic Engineer - Automation Test Equipment @ Signal Processing Engineer (RF Processing & Analytics)
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** test automation
-- [Apply / details](https://www.arbeitnow.fr/jobs/companies/signal-processing-engineer-rf-processing-analytics/mechatronic-engineer-automation-test-equipment-paris-125813)
-
-### FP&A Lead @ Signal Processing Engineer (RF Processing & Analytics)
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** llm
-- [Apply / details](https://www.arbeitnow.fr/jobs/companies/signal-processing-engineer-rf-processing-analytics/fpa-lead-paris-250210)
-
-### Enterprise Demand Generation Marketing Manager @ Runway
+### Senior Group Accountant ( M/F) @ Horizontradingsolutions
 - **Source:** Arbeitnow · **Pay:** 💰 paid
 - **Matched:** artificial intelligence
-- [Apply / details](https://www.arbeitnow.fr/jobs/companies/runway/enterprise-demand-generation-marketing-manager-hybrid-389158)
+- [Apply / details](https://www.arbeitnow.fr/jobs/companies/horizontradingsolutions/senior-group-accountant-m-f-paris-paris-206863)
 
-### Account Executive (German Speaking) @ Deepgram
+### Alternance - Site Reliability Engineer  (F/H) @ Horizontradingsolutions
 - **Source:** Arbeitnow · **Pay:** ❓ pay unknown
+- **Matched:** machine learning
+- [Apply / details](https://www.arbeitnow.fr/jobs/companies/horizontradingsolutions/alternance-site-reliability-engineer-f-h-nantes-loire-atlantique-65461)
+
+### Senior Delivery Partner Manager, Services @ databricks
+- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
+- **Matched:** machine learning
+- [Apply / details](https://www.arbeitnow.fr/jobs/companies/databricks/senior-delivery-partner-manager-services-paris-294537)
+
+### Java Fullstack Software Engineer (Spring Boot / Angular) @ Coopers Group AG
+- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
+- **Matched:** machine learning
+- [Apply / details](https://www.arbeitnow.ch/jobs/companies/coopers-group-ag/java-fullstack-software-engineer-spring-boot-angular-bern-241500)
+
+### Mechanical Forward Deployed Engineer - Switzerland @ colabsoftware
+- **Source:** Arbeitnow · **Pay:** 💰 paid
 - **Matched:** ai/ml
-- [Apply / details](https://www.arbeitnow.ch/jobs/companies/deepgram/account-executive-german-speaking-switzerland-310913)
+- [Apply / details](https://www.arbeitnow.ch/jobs/companies/colabsoftware/mechanical-forward-deployed-engineer-switzerland-385092)
 
-### Applied AI Engineer @ Jobgether
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** ai engineer
-- [Apply / details](https://www.arbeitnow.ch/jobs/companies/jobgether/applied-ai-engineer-switzerland-204694)
-
-### AI Research Engineer (Agentic Reinforcement Learning) @ Jobgether
+### Senior Generative AI Engineer @ SwissPeak Partners GmbH
 - **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** machine learning, deep learning, artificial intelligence, natural language processing, generative ai, computer vision
-- [Apply / details](https://www.arbeitnow.ch/jobs/companies/jobgether/ai-research-engineer-agentic-reinforcement-learning-switzerland-180304)
+- **Matched:** ai engineer, machine learning, generative ai, genai, data scientist
+- [Apply / details](https://www.arbeitnow.ch/jobs/companies/swisspeak-partners-gmbh/senior-generative-ai-engineer-zurich-404030)
 
-### AI Engineer @ Jobgether
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** ai engineer, machine learning, computer vision
-- [Apply / details](https://www.arbeitnow.ch/jobs/companies/jobgether/ai-engineer-switzerland-78556)
-
-### Research Staff, Voice AI Foundations - Remote @ Deepgram
+### ServiceNow AI Architect @ SwissPeak Partners GmbH
 - **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** deep learning
-- [Apply / details](https://www.arbeitnow.nl/jobs/companies/deepgram/research-staff-voice-ai-foundations-remote-amsterdam-428068)
+- **Matched:** artificial intelligence, generative ai
+- [Apply / details](https://www.arbeitnow.ch/jobs/companies/swisspeak-partners-gmbh/remote-servicenow-ai-architect-zurich-455252)
 
-### Senior Product Analyst / Data Scientist @ Nebius
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** llm, data scientist, ai/ml
-- [Apply / details](https://www.arbeitnow.nl/jobs/companies/nebius/senior-product-analyst-data-scientist-amsterdam-147157)
+### Director, Learning & Development, EMEA @ Scholarrock
+- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
+- **Matched:** artificial intelligence
+- [Apply / details](https://www.arbeitnow.ch/jobs/companies/scholarrock/director-learning-development-emea-zug-374227)
 
-### Chief Information Security Officer @ Decentralized Masters
+### Mid/Senior AI LLM Engineer (Full Remote - Netherlands) @ EverAI
 - **Source:** Arbeitnow · **Pay:** 💰 paid
 - **Matched:** llm
-- [Apply / details](https://www.arbeitnow.nl/jobs/companies/decentralized-masters/remote-chief-information-security-officer-amsterdam-193201)
+- [Apply / details](https://www.arbeitnow.nl/jobs/companies/everai/mid-senior-ai-llm-engineer-full-remote-netherlands-457814)
 
-### Applied AI Engineer @ Jobgether
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** ai engineer
-- [Apply / details](https://www.arbeitnow.nl/jobs/companies/jobgether/applied-ai-engineer-netherlands-402898)
+### Airbnb: Operations Engineer, BizTech @ Airbnb
+- **Source:** WeWorkRemotely · **Pay:** 💰 paid
+- **Matched:** llm
+- [Apply / details](https://weworkremotely.com/remote-jobs/airbnb-operations-engineer-biztech)
 
-### AI Research Engineer (Agentic Reinforcement Learning) @ Jobgether
-- **Source:** Arbeitnow · **Pay:** ❓ pay unknown
-- **Matched:** machine learning, deep learning, artificial intelligence, natural language processing, generative ai, computer vision
-- [Apply / details](https://www.arbeitnow.nl/jobs/companies/jobgether/ai-research-engineer-agentic-reinforcement-learning-netherlands-255371)
+### Edgewater Federal Solutions, Inc.: Full-Stack Platform Engineer @ Edgewater Federal Solutions, Inc.
+- **Source:** WeWorkRemotely · **Pay:** 💰 paid
+- **Matched:** llm, ai/ml
+- [Apply / details](https://weworkremotely.com/remote-jobs/edgewater-federal-solutions-inc-full-stack-platform-engineer)
 
-### AI Engineer @ Jobgether
-- **Source:** Arbeitnow · **Pay:** 💰 paid
-- **Matched:** ai engineer, machine learning, computer vision
-- [Apply / details](https://www.arbeitnow.nl/jobs/companies/jobgether/ai-engineer-netherlands-136871)
+### Halcyon: Senior Backend Cloud Engineer @ Halcyon
+- **Source:** WeWorkRemotely · **Pay:** 💰 paid
+- **Matched:** machine learning
+- [Apply / details](https://weworkremotely.com/remote-jobs/halcyon-senior-backend-cloud-engineer)
 
 ---
 _✔ verified = the posting page was fetched live during this run and still looks open and no eligibility blocker was found in the full text; pay labels may have been corrected from the full text._

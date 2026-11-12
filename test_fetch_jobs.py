@@ -336,3 +336,44 @@ def test_is_remote_ok_rejects_remote_days_cap_and_onsite_pct():
 
 if __name__ == "__main__":
     sys.exit(pytest.main([__file__, "-q"]))
+
+
+# ------------------------------------------------------------- Next Play source
+
+NEXTPLAY_HTML = """
+<html><head>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [
+  {"@type": "ListItem", "position": 1,
+   "name": "Applied AI Engineer at Legora",
+   "url": "https://nextplay.so/jobs/aaaa1111-2222-3333-4444-555555555555"},
+  {"@type": "ListItem", "position": 2,
+   "name": "Account Executive at Xapien",
+   "url": "https://nextplay.so/jobs/bbbb1111-2222-3333-4444-555555555555"}
+]}
+</script>
+<script type="application/ld+json">{not valid json</script>
+</head><body></body></html>
+"""
+
+
+def test_nextplay_parser_extracts_role_and_company():
+    listings = fj.parse_nextplay_listings(NEXTPLAY_HTML)
+    assert len(listings) == 2  # broken JSON-LD blob is skipped, not fatal
+    assert listings[0] == {
+        "title": "Applied AI Engineer",
+        "company": "Legora",
+        "url": "https://nextplay.so/jobs/aaaa1111-2222-3333-4444-555555555555",
+    }
+    assert listings[1]["title"] == "Account Executive"
+
+
+def test_nextplay_parser_handles_missing_at_and_empty_input():
+    html = ('<script type="application/ld+json">'
+            '{"itemListElement": [{"name": "Solo Role", '
+            '"url": "https://nextplay.so/jobs/x"}]}</script>')
+    listings = fj.parse_nextplay_listings(html)
+    assert listings[0]["title"] == "Solo Role"
+    assert listings[0]["company"] == ""
+    assert fj.parse_nextplay_listings("") == []
+    assert fj.parse_nextplay_listings("<html>no ld+json here</html>") == []

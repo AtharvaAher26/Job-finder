@@ -8,7 +8,9 @@ flags postings that look like test/resume/project-based selection
 and writes a daily digest.
 
 Sources: RemoteOK API, Arbeitnow API, Remotive API, We Work Remotely RSS,
-Hacker News "Who is hiring" threads. All free, no API keys needed.
+Hacker News "Who is hiring" threads, Next Play (JSON-LD index). All free,
+no API keys needed. See SOURCES.md for the full source registry, including
+watchlist sites that cannot be auto-fetched.
 
 Usage:
     python3 fetch_jobs.py            # fetch + filter + write digest.md
@@ -373,6 +375,87 @@ def fetch_hn() -> list[dict]:
     return jobs
 
 
+def parse_nextplay_listings(html_text: str) -> list[dict]:
+    """Extract (title, company, url) from a Next Play page's JSON-LD ItemList.
+
+    Listing names are formatted "Role at Company". Pure function — the
+    network fetcher below is a thin wrapper, so this is unit-testable
+    offline.
+    """
+    out: list[dict] = []
+    for blob in re.findall(
+            r'<script type="application/ld\+json">(.*?)</script>',
+            html_text, re.S):
+        try:
+            data = json.loads(blob)
+        except Exception:
+            continue
+        items = data.get("itemListElement") if isinstance(data, dict) else None
+        if not items:
+            continue
+        for it in items:
+            if not isinstance(it, dict):
+                continue
+            name = (it.get("name") or "").strip()
+            url = (it.get("url") or "").strip()
+            if not name or not url:
+                continue
+            if " at " in name:
+                title, _, company = name.rpartition(" at ")
+            else:
+                title, company = name, ""
+            out.append({
+                "title": (title or name).strip(),
+                "company": company.strip(),
+                "url": url,
+            })
+    return out
+
+
+def fetch_nextplay() -> list[dict]:
+    """Next Play job board — the main board page carries a JSON-LD index.
+
+    Only the main board is fetched: the collection pages (Applied AI,
+    Remote-first) render their listings client-side and expose no
+    server-rendered data, so they stay manual-watchlist per SOURCES.md.
+    No key needed. Added Nov 12, 2026 from Atharva's source list.
+    """
+    jobs: list[dict] = []
+    pages = [
+        ("https://nextplay.so/jobs", ""),
+    ]
+    seen_urls: set = set()
+    for page_url, collection in pages:
+        try:
+            req = urllib.request.Request(page_url, headers=UA)
+            with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
+                html_text = resp.read().decode("utf-8", errors="ignore")
+        except Exception as e:
+            print(f"[nextplay] fetch failed ({page_url}): {e}",
+                  file=sys.stderr)
+            continue
+        for listing in parse_nextplay_listings(html_text):
+            if listing["url"] in seen_urls:
+                continue
+            seen_urls.add(listing["url"])
+            text = (f"{listing['title']} at {listing['company']} "
+                    f"{collection}").strip()
+            hits = role_hits(text)
+            if not hits:
+                continue
+            gid = hashlib.md5(listing["url"].encode()).hexdigest()[:12]
+            jobs.append({
+                "id": f"nextplay-{gid}",
+                "title": listing["title"],
+                "company": listing["company"],
+                "url": listing["url"],
+                "text": text,
+                "hits": hits,
+                "source": "Next Play",
+            })
+    return jobs
+
+
 # ---------------------------------------------------------------- verification
 # Headline picks (the 🎓 internships + 🎯 no-interview sections) get one live
 # fetch each before the digest goes out: dead postings are demoted out of the
@@ -671,7 +754,7 @@ def main() -> None:
 
     all_jobs: list[dict] = []
     for fetcher in (fetch_remoteok, fetch_arbeitnow, fetch_remotive,
-                    fetch_wwr, fetch_hn):
+                    fetch_wwr, fetch_hn, fetch_nextplay):
         all_jobs.extend(fetcher())
 
     fresh = [j for j in all_jobs if j["id"] not in seen]
@@ -742,7 +825,7 @@ def main() -> None:
     now = datetime.now(timezone.utc).astimezone().strftime("%d %b %Y, %I:%M %p %Z")
     lines = [f"# Job digest — {now}"
              + (" (internships only)" if internships_only else ""), "",
-             f"Scanned {len(all_jobs)} postings across 5 sources, {len(fresh)} new, "
+             f"Scanned {len(all_jobs)} postings across 6 sources, {len(fresh)} new, "
              f"{len(matches)} matched your roles"
              + (f" ({skipped_applied} skipped — already in your tracker)"
                 if skipped_applied else "") + ".", ""]

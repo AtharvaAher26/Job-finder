@@ -183,6 +183,106 @@ def test_tomtom_like_demoted_on_dutch_enrolment_and_commute(monkeypatch):
     assert "Dutch" in job["verify_note"]
 
 
+# ---------------------------------------------------------------- eligibility
+# Nov 11 extension — grounded in the three picks withdrawn that morning
+# (greenteg AG, Sonio x2; full wording from the Nov 11 correction).
+def test_greenteg_like_demoted_on_permit_and_onsite_pct(monkeypatch):
+    job = make_job(title="Data Science Internship - Rümlang",
+                   company="greenteg AG")
+    patch_fetch(monkeypatch, lambda url: (
+        "Data Science internship in Rümlang, Switzerland. Requires a valid "
+        "Swiss work permit or EU/EFTA citizenship. This role is 80–100% "
+        "on-site with only 1–2 remote days a week."))
+    fj.verify_headlines([job])
+    assert job["verified"] is False
+    assert ("permit" in job["verify_note"] or "on-site" in job["verify_note"]
+            or "remote days" in job["verify_note"])
+    live, dead = fj.partition_verified([job])
+    assert live == [] and dead == [job]
+
+
+def test_sonio_like_demoted_on_master2_bac5(monkeypatch):
+    job = make_job(title="Data Science Intern - Paris",
+                   company="Sonio")
+    patch_fetch(monkeypatch, lambda url: (
+        "Candidates must be in Master 2 / Bac+5, enrolled for a 5–6 month "
+        "internship in Paris."))
+    fj.verify_headlines([job])
+    assert job["verified"] is False
+    assert "Master 2" in job["verify_note"]
+
+
+def test_bac5_alone_demotes(monkeypatch):
+    job = make_job(title="ML Intern", company="Acme")
+    patch_fetch(monkeypatch, lambda url: (
+        "Fully remote internship. Open to Bac+5 students only."))
+    fj.verify_headlines([job])
+    assert job["verified"] is False
+    assert "Master 2" in job["verify_note"]
+
+
+# ---------------------------------------------------------------- eligibility
+# Nov 12 extension — grounded in the Axle Careers pick withdrawn that
+# morning (Energy Markets - France CDD; full wording from the Nov 12
+# correction). The Nov 11 extension would NOT have caught it: no permit
+# wording, no on-site %, no Master 2 — just "based in France" plus a
+# monthly London-office week.
+def test_axle_like_demoted_on_based_in_and_office_week(monkeypatch):
+    job = make_job(title="Energy Markets - France (CDD)",
+                   company="Axle Careers")
+    patch_fetch(monkeypatch, lambda url: (
+        "You will speak fluent French and English. You will become our "
+        "expert on French power markets. You'll be based in France. To "
+        "maximise collaboration, we ask that you spend ~1 week per month "
+        "working from our London office. Interview process: initial "
+        "interview, take-home exercise, final interview (in-person)."))
+    fj.verify_headlines([job])
+    assert job["verified"] is False
+    assert ("based in" in job["verify_note"]
+            or "office" in job["verify_note"])
+
+
+def test_company_based_in_does_not_demote(monkeypatch):
+    # "We're based in Berlin" describes the company, not the candidate —
+    # a fully remote posting with it must stay headlined.
+    job = make_job(title="AI Engineer Intern", company="Acme")
+    patch_fetch(monkeypatch, lambda url: (
+        "We're based in Berlin and fully remote worldwide. Stipend paid "
+        "monthly."))
+    fj.verify_headlines([job])
+    assert job["verified"] is True
+
+
+def test_biannual_retreat_does_not_demote(monkeypatch):
+    # A twice-a-year team retreat is not a monthly office requirement.
+    job = make_job(title="AI Engineer Intern", company="Acme")
+    patch_fetch(monkeypatch, lambda url: (
+        "Fully remote internship. Bi-annual retreats to strengthen team "
+        "connection. Stipend paid monthly."))
+    fj.verify_headlines([job])
+    assert job["verified"] is True
+
+
+def test_work_authorisation_offer_stays_headline(monkeypatch):
+    # "We sponsor work authorization" is the opposite of a requirement —
+    # it must not demote (cf. Nebius, Nov 5, which *required* it).
+    job = make_job(title="AI Engineer Intern", company="Acme")
+    patch_fetch(monkeypatch, lambda url: (
+        "Fully remote internship. We sponsor work authorization and visas. "
+        "Stipend paid monthly."))
+    fj.verify_headlines([job])
+    assert job["verified"] is True
+
+
+def test_masters_plus_mention_does_not_demote(monkeypatch):
+    job = make_job(title="AI Engineer Intern", company="Acme")
+    patch_fetch(monkeypatch, lambda url: (
+        "Fully remote internship. A Master's degree is a plus, not required. "
+        "Work remotely 5 days a week."))
+    fj.verify_headlines([job])
+    assert job["verified"] is True
+
+
 def test_genuine_remote_internship_stays_headline(monkeypatch):
     job = make_job(title="AI Engineer Intern", company="Acme",
                    pay="unknown")
@@ -222,6 +322,16 @@ def test_is_remote_ok_rejects_partial_wfh_and_commute():
         "Located in Amsterdam to be able to commute to the office") is False
     assert fj.is_remote_ok("Fully remote, work from anywhere") is True
     assert fj.is_remote_ok("Remote-first team, async") is True
+
+
+def test_is_remote_ok_rejects_remote_days_cap_and_onsite_pct():
+    # Nov 11 (greenteg AG): capped remote days / mostly on-site in the
+    # snippet itself, so the posting never reaches the digest at all.
+    assert fj.is_remote_ok(
+        "Data Science internship, 80–100% on-site with only 1–2 remote "
+        "days a week") is False
+    assert fj.is_remote_ok("Remote 2 days a week, office the rest") is False
+    assert fj.is_remote_ok("Fully remote, work from anywhere") is True
 
 
 if __name__ == "__main__":

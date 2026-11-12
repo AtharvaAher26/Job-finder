@@ -169,6 +169,14 @@ def is_remote_ok(text: str) -> bool:
     if "fully remote" not in t:
         if re.search(r"work from home (up to )?\d+ days?", t):
             return False
+        # Nov 11: same capped-remote / mostly-onsite signals as the
+        # eligibility check — "1–2 remote days a week", "80–100% on-site".
+        if re.search(r"\b\d+\s*[-–]\s*\d+\s+remote days?", t):
+            return False
+        if re.search(r"remote (up to )?\d+ days? (a|per) week", t):
+            return False
+        if re.search(r"\b([5-9]\d|100)\s?% on-?site\b", t):
+            return False
         if "commute" in t:
             return False
     if any(s in t for s in ["remote", "work from home", "wfh", "distributed",
@@ -396,6 +404,13 @@ EXPIRED_MARKERS = [
 # Fiducial (no visa sponsorship + 2 WFH days/week), Distalmotion
 # (Master's / final-year Bachelor's enrolment), Tomtom (Dutch university
 # enrolment + commute to the Amsterdam office twice a week).
+# Nov 11 picks that slipped the Nov 7 check (greenteg AG, Sonio x2):
+# a Swiss work-permit / EU-EFTA citizenship requirement, an on-site
+# percentage ("80–100% on-site"), a capped remote allowance ("1–2
+# remote days a week"), and the French "Master 2 / Bac+5" enrolment
+# gate. The title-city signal from the Nov 11 note is deliberately NOT
+# a pattern here: legit remote postings carry a city in the title too,
+# and greenteg's body already states the on-site % that demotes it.
 ELIGIBILITY_FAILS = [
     (re.compile(r"cannot provide visa sponsorship", re.I),
      "no visa sponsorship"),
@@ -418,6 +433,46 @@ ELIGIBILITY_FAILS = [
      "only some days work-from-home (onsite the rest of the week)"),
     (re.compile(r"\d+ days? (a|per) week in (the )?office", re.I),
      "requires office days each week"),
+    # --- Nov 11 extension (greenteg AG, Sonio x2) ---
+    # Work-permit / authorisation requirement. "We sponsor work
+    # authorization" must NOT match: only requires/must-hold/need
+    # wording demotes. Residual risk: "authorisation in the country
+    # where you are based" would also match — rare in headline picks.
+    (re.compile(r"(requires?|must hold|must have|need)[^.]{0,60}"
+                r"work (permit|authori[sz]ation)", re.I),
+     "requires a work permit / authorisation"),
+    (re.compile(r"eu/efta citizenship", re.I),
+     "requires EU/EFTA citizenship"),
+    # Stated on-site share of 50% or more ("80–100% on-site"). The
+    # "100%" arm also catches "80–100%" (en dash), where "80" alone
+    # is not followed by "%".
+    (re.compile(r"\b([5-9]\d|100)\s?% on-?site\b", re.I),
+     "mostly on-site (50%+ on-site stated)"),
+    # Capped remote allowance ("1–2 remote days a week", "remote
+    # 2 days a week"). "Fully remote" postings never state a cap.
+    (re.compile(r"\b\d+\s*[-–]\s*\d+\s+remote days?\b", re.I),
+     "only a few remote days a week (onsite the rest)"),
+    (re.compile(r"remote (up to )?\d+ days? (a|per) week", re.I),
+     "only a few remote days a week (onsite the rest)"),
+    (re.compile(r"\bonly \d+ remote days?\b", re.I),
+     "only a few remote days a week (onsite the rest)"),
+    # French enrolment gate: "in Master 2 / Bac+5" (Sonio). A bare
+    # "Master's degree is a plus" does not match either pattern.
+    (re.compile(r"\bmaster 2\b", re.I),
+     "requires Master 2 enrolment (French Bac+5)"),
+    (re.compile(r"\bbac\s*\+\s*5\b", re.I),
+     "requires Master 2 enrolment (French Bac+5)"),
+    # --- Nov 12 extension (Axle Careers, withdrawn same morning) ---
+    # Candidate-directed base requirement: "You'll be based in France"
+    # (Axle). Deliberately NOT a bare "based in <place>": legit remote
+    # postings say "we're based in Berlin, fully remote worldwide".
+    (re.compile(r"\b(you'll be|you will be|must be) based in\b", re.I),
+     "requires being based in the stated country"),
+    # Recurring office stint: "spend ~1 week per month working from
+    # our London office" (Axle). A one-off visit / retreat does not
+    # match: it needs the per-month cadence plus "office".
+    (re.compile(r"\b\d+\s+weeks? per month[^.]{0,40}office\b", re.I),
+     "requires regular time in the office each month"),
 ]
 
 # Ambiguous signals: worth flagging on the pick, never enough to demote.

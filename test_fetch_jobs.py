@@ -242,6 +242,49 @@ def test_axle_like_demoted_on_based_in_and_office_week(monkeypatch):
             or "office" in job["verify_note"])
 
 
+# ---------------------------------------------------------------- eligibility
+# Nov 13 extension — grounded in the two Paris internships headlined
+# Nov 13 and withdrawn the same morning after reading the full
+# postings (Mirakl: HR role, French C2, 2 remote days/month, Paris
+# office; Meetdavis: AI Engineer Intern, "Read and write French",
+# Paris team of 12, no remote stated).
+def test_mirakl_like_demoted_on_french_and_monthly_remote_cap(monkeypatch):
+    job = make_job(title="Data & People analytics Intern - January 2027",
+                   company="Mirakl")
+    patch_fetch(monkeypatch, lambda url: (
+        "Currently pursuing a Bachelor's or Master's degree in HR. "
+        "Availability for a 6-month internship starting in January 2027 "
+        "is required. French: Fluent (C2 level required). English: "
+        "Professional proficiency. Perks: 2 remote work days per month. "
+        "Modern offices in the heart of Paris."))
+    fj.verify_headlines([job])
+    assert job["verified"] is False
+    assert ("French" in job["verify_note"]
+            or "remote days" in job["verify_note"])
+
+
+def test_meetdavis_like_demoted_on_read_write_french(monkeypatch):
+    job = make_job(title="AI Engineer Intern", company="Meetdavis")
+    patch_fetch(monkeypatch, lambda url: (
+        "AI Engineer Intern to build multi-agent systems for real-estate "
+        "workflows. Read and write French: our sources and deliverables "
+        "are in French. Competitive salary. Team of 12 in Paris."))
+    fj.verify_headlines([job])
+    assert job["verified"] is False
+    assert "French" in job["verify_note"]
+
+
+def test_french_plus_does_not_demote(monkeypatch):
+    # "French is a plus" is a preference, not a requirement — a fully
+    # remote posting with it must stay headlined.
+    job = make_job(title="AI Engineer Intern", company="Acme")
+    patch_fetch(monkeypatch, lambda url: (
+        "Fully remote internship. French is a plus, not required. "
+        "Stipend paid monthly."))
+    fj.verify_headlines([job])
+    assert job["verified"] is True
+
+
 def test_company_based_in_does_not_demote(monkeypatch):
     # "We're based in Berlin" describes the company, not the candidate —
     # a fully remote posting with it must stay headlined.
@@ -303,6 +346,26 @@ def test_asap_start_only_is_warning_not_demotion(monkeypatch):
     fj.verify_headlines([job])
     assert job["verified"] is True
     assert "ASAP" in job["verify_note"]
+
+
+def test_adjoe_like_working_student_warns_not_demotes(monkeypatch):
+    # Nov 14: adjoe Working Student - Data Science, Hamburg — text
+    # states no blocker, no remote option, no office share; just a
+    # Hamburg title, current enrolment, up to 20h/week in semester.
+    # Must stay headlined (verified True) but carry the Working
+    # Student location warning, so tomorrow's digest flags it.
+    job = make_job(title="Working Student - Data Science",
+                   company="adjoe")
+    patch_fetch(monkeypatch, lambda url: (
+        "You are currently pursuing a Bachelor's or Master's in Data "
+        "Science, Computer Science, Mathematics, Statistics, or a "
+        "related quantitative field. You are available to contribute "
+        "up to 20 hours per week during the semester. Solid Python "
+        "skills and hands-on familiarity with PyTorch, TensorFlow, "
+        "scikit-learn, and gradient boosting libraries."))
+    fj.verify_headlines([job])
+    assert job["verified"] is True
+    assert "Working Student" in job["verify_note"]
 
 
 def test_onsite_interview_mention_does_not_warn(monkeypatch):
@@ -377,3 +440,121 @@ def test_nextplay_parser_handles_missing_at_and_empty_input():
     assert listings[0]["company"] == ""
     assert fj.parse_nextplay_listings("") == []
     assert fj.parse_nextplay_listings("<html>no ld+json here</html>") == []
+
+
+# ------------------------------------------------------------- Himalayas source
+
+HIMALAYAS_PAGE = {
+    "jobs": [
+        {
+            "title": "Machine Learning Intern",
+            "companyName": "Acme AI",
+            "employmentType": "Internship",
+            "categories": ["Machine-Learning", "AI"],
+            "locationRestrictions": ["India"],
+            "guid": "https://himalayas.app/companies/acme/jobs/ml-intern",
+            "applicationLink":
+                "https://himalayas.app/companies/acme/jobs/ml-intern"
+                "?utm_source=api",
+        },
+        {
+            "title": "Sales Executive",
+            "companyName": "Widgets Inc",
+            "employmentType": "Full Time",
+            "categories": ["Sales"],
+            "locationRestrictions": ["United States"],
+            "guid":
+                "https://himalayas.app/companies/widgets/jobs/sales-exec",
+        },
+    ],
+    "nextCursor": "cursor-abc",
+}
+
+
+def test_himalayas_parser_maps_fields():
+    listings = fj.parse_himalayas_jobs(HIMALAYAS_PAGE)
+    assert len(listings) == 2
+    first = listings[0]
+    assert first["title"] == "Machine Learning Intern"
+    assert first["company"] == "Acme AI"
+    assert first["url"] == \
+        "https://himalayas.app/companies/acme/jobs/ml-intern"
+    assert "Internship" in first["context"]
+    assert "India" in first["context"]
+
+
+def test_himalayas_parser_dedupes_and_falls_back_to_application_link():
+    page = {"jobs": [
+        {"title": "Data Intern", "companyName": "Dup Co",
+         "guid": "https://himalayas.app/jobs/dup"},
+        {"title": "Data Intern (repost)", "companyName": "Dup Co",
+         "guid": "https://himalayas.app/jobs/dup"},
+        {"title": "NLP Intern", "companyName": "NoGuid Ltd",
+         "applicationLink":
+             "https://himalayas.app/jobs/nlp-intern?utm_source=api"},
+    ]}
+    listings = fj.parse_himalayas_jobs(page)
+    assert [listing["title"] for listing in listings] == \
+        ["Data Intern", "NLP Intern"]
+    # utm query is stripped from the fallback link
+    assert listings[1]["url"] == "https://himalayas.app/jobs/nlp-intern"
+
+
+def test_himalayas_parser_skips_missing_fields():
+    page = {"jobs": [
+        {"companyName": "No Title Co",
+         "guid": "https://himalayas.app/jobs/x"},
+        {"title": "No URL Role", "companyName": "No Link Co"},
+        "not a dict",
+        {"title": "  ", "guid": "https://himalayas.app/jobs/blank"},
+    ]}
+    assert fj.parse_himalayas_jobs(page) == []
+    assert fj.parse_himalayas_jobs({}) == []
+    assert fj.parse_himalayas_jobs({"jobs": None}) == []
+    assert fj.parse_himalayas_jobs({"jobs": []}) == []
+
+
+def test_himalayas_fetch_paginates_filters_and_shapes(monkeypatch):
+    pages = {
+        None: HIMALAYAS_PAGE,
+        "cursor-abc": {"jobs": [
+            {"title": "LLM Engineering Intern", "companyName": "Beta Labs",
+             "employmentType": "Internship",
+             "guid":
+                 "https://himalayas.app/companies/beta/jobs/llm-intern"},
+        ], "nextCursor": None},
+    }
+    calls = []
+
+    class FakeResp:
+        def __init__(self, payload):
+            self._body = fj.json.dumps(payload).encode()
+
+        def read(self):
+            return self._body
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *exc):
+            return False
+
+    def fake_urlopen(req, **kwargs):
+        calls.append(req.full_url)
+        cursor = None
+        if "cursor=" in req.full_url:
+            cursor = req.full_url.split("cursor=", 1)[1]
+        return FakeResp(pages[cursor])
+
+    monkeypatch.setattr(fj.urllib.request, "urlopen", fake_urlopen)
+    jobs = fj.fetch_himalayas()
+    assert len(calls) == 2  # stopped when nextCursor ran out
+    titles = [j["title"] for j in jobs]
+    assert "Machine Learning Intern" in titles
+    assert "LLM Engineering Intern" in titles
+    assert "Sales Executive" not in titles  # keyword filter still applies
+    job = jobs[0]
+    assert job["source"] == "Himalayas"
+    assert job["id"].startswith("himalayas-")
+    assert job["company"] == "Acme AI"
+    assert job["hits"]

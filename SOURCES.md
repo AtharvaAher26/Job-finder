@@ -13,6 +13,7 @@ are checked manually — each entry says why it is not auto-fetched.
 | We Work Remotely | RSS feeds (programming, devops) | Oct 2026 |
 | Hacker News "Who's Hiring" | Algolia API on the monthly thread | Oct 2026 |
 | **Next Play** (nextplay.so) | JSON-LD index parsed from the main board page (its Applied AI / Remote-first collection pages render client-side with no server data, so they are manual-watchlist) | **Nov 12, 2026** |
+| **Himalayas** (himalayas.app) | Key-free public JSON API, cursor-paginated (page size fixed at 20, no working search/filter params, so each run walks at most 8 pages / 160 newest listings); `locationRestrictions` are carried into the match text so the shared remote/eligibility checks see them. Board is full-time-heavy, so expect low internship yield | **Nov 14, 2026** |
 
 ## From Atharva's Nov 12, 2026 list — evaluated, watchlist-only
 | Site | Verdict |
@@ -23,6 +24,12 @@ are checked manually — each entry says why it is not auto-fetched.
 | Founders You Should Know (foundersysk.com) | A founder showcase / talent community, not a job board with a listings feed. |
 | a16z Build (Substack) | A newsletter, not a board. The actual a16z portfolio job board lives at jobs.a16z.com (third-party platform, no stable public feed) — manual watchlist. |
 | Cosign (cosign.co/jobs) | A *single company's* careers page (Greenhouse/Lever). One employer, not a board; add only if that company becomes a named target. |
+
+## Evaluated Nov 14, 2026 — watchlist-only
+| Site | Verdict |
+|---|---|
+| Jobgether (jobgether.com) | Feed returns 403 — no stable key-free feed to auto-fetch. Manual watchlist. |
+| Working Nomads (workingnomads.com) | Public feed works, but internship density is very low (board skews to experienced full-time roles). Not worth a daily fetch slot. Manual watchlist. |
 
 ## Not a job source
 | Site | Verdict |

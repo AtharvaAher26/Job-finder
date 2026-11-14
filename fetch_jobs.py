@@ -8,7 +8,8 @@ flags postings that look like test/resume/project-based selection
 and writes a daily digest.
 
 Sources: RemoteOK API, Arbeitnow API, Remotive API, We Work Remotely RSS,
-Hacker News "Who is hiring" threads, Next Play (JSON-LD index). All free,
+Hacker News "Who is hiring" threads, Next Play (JSON-LD index),
+Himalayas API. All free,
 no API keys needed. See SOURCES.md for the full source registry, including
 watchlist sites that cannot be auto-fetched.
 
@@ -176,6 +177,10 @@ def is_remote_ok(text: str) -> bool:
         if re.search(r"\b\d+\s*[-–]\s*\d+\s+remote days?", t):
             return False
         if re.search(r"remote (up to )?\d+ days? (a|per) week", t):
+            return False
+        # Nov 13 (Mirakl): "2 remote work days per month" — same cap,
+        # monthly cadence.
+        if re.search(r"\b\d+\s+remote (work )?days? per month", t):
             return False
         if re.search(r"\b([5-9]\d|100)\s?% on-?site\b", t):
             return False
@@ -456,6 +461,97 @@ def fetch_nextplay() -> list[dict]:
     return jobs
 
 
+def parse_himalayas_jobs(data: dict) -> list[dict]:
+    """Extract (title, company, url, context) from a Himalayas API payload.
+
+    Pure function — the network fetcher below is a thin wrapper, so this
+    is unit-testable offline. Context carries the fields the keyword
+    filter and remote check care about: employment type, categories and
+    the board's own location restrictions. Duplicate URLs within one
+    payload are dropped (first occurrence wins).
+    """
+    out: list[dict] = []
+    seen_urls: set = set()
+    items = data.get("jobs") if isinstance(data, dict) else None
+    if not items:
+        return out
+    for it in items:
+        if not isinstance(it, dict):
+            continue
+        title = (it.get("title") or "").strip()
+        url = (it.get("guid") or "").strip()
+        if not url:
+            link = (it.get("applicationLink") or "").strip()
+            if link:
+                parts = urllib.parse.urlsplit(link)
+                url = urllib.parse.urlunsplit(
+                    (parts.scheme, parts.netloc, parts.path, "", ""))
+        if not title or not url or url in seen_urls:
+            continue
+        seen_urls.add(url)
+        context_bits = [str(it.get("employmentType") or "").strip()]
+        for key in ("categories", "locationRestrictions"):
+            vals = it.get(key)
+            if isinstance(vals, list):
+                context_bits.extend(str(v).strip() for v in vals)
+        out.append({
+            "title": title,
+            "company": (it.get("companyName") or "").strip(),
+            "url": url,
+            "context": " ".join(b for b in context_bits if b),
+        })
+    return out
+
+
+def fetch_himalayas() -> list[dict]:
+    """Himalayas job board — free public JSON API, cursor-paginated.
+
+    Page size is fixed at 20 and the API ignores search/filter params,
+    so each run walks at most 8 pages (160 jobs) of the newest listings
+    and lets the shared keyword filter do the selection. The board is
+    full-time-heavy, so internship yield is low. No key needed.
+    Added Nov 14, 2026 from Atharva's source list.
+    """
+    jobs: list[dict] = []
+    seen_urls: set = set()
+    url = "https://himalayas.app/jobs/api"
+    for _page in range(8):
+        try:
+            req = urllib.request.Request(url, headers=UA)
+            with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
+                data = json.loads(
+                    resp.read().decode("utf-8", errors="ignore"))
+        except Exception as e:
+            print(f"[himalayas] fetch failed ({url}): {e}",
+                  file=sys.stderr)
+            break
+        for listing in parse_himalayas_jobs(data):
+            if listing["url"] in seen_urls:
+                continue
+            seen_urls.add(listing["url"])
+            text = (f"{listing['title']} at {listing['company']} "
+                    f"{listing['context']}").strip()
+            hits = role_hits(text)
+            if not hits:
+                continue
+            gid = hashlib.md5(listing["url"].encode()).hexdigest()[:12]
+            jobs.append({
+                "id": f"himalayas-{gid}",
+                "title": listing["title"],
+                "company": listing["company"],
+                "url": listing["url"],
+                "text": text,
+                "hits": hits,
+                "source": "Himalayas",
+            })
+        cursor = data.get("nextCursor") if isinstance(data, dict) else None
+        if not cursor:
+            break
+        url = ("https://himalayas.app/jobs/api?cursor="
+               + urllib.parse.quote(str(cursor), safe=""))
+    return jobs
+
+
 # ---------------------------------------------------------------- verification
 # Headline picks (the 🎓 internships + 🎯 no-interview sections) get one live
 # fetch each before the digest goes out: dead postings are demoted out of the
@@ -556,6 +652,23 @@ ELIGIBILITY_FAILS = [
     # match: it needs the per-month cadence plus "office".
     (re.compile(r"\b\d+\s+weeks? per month[^.]{0,40}office\b", re.I),
      "requires regular time in the office each month"),
+    # --- Nov 13 extension (Mirakl + Meetdavis, both Paris internships
+    # headlined Nov 13, both withdrawn the same morning) ---
+    # French fluency as a requirement, in the exact forms used:
+    # Mirakl "French: Fluent (C2 level required)"; Meetdavis
+    # "Read and write French: our sources and deliverables are in
+    # French". A bare "French is a plus" does not match — only
+    # requirement wording demotes.
+    (re.compile(r"\bfrench\s*:\s*fluent\b", re.I),
+     "requires fluent French"),
+    (re.compile(r"\bread and write french\b", re.I),
+     "requires reading and writing French"),
+    (re.compile(r"\bfluent french\b[^.]{0,30}\brequired\b", re.I),
+     "requires fluent French"),
+    # Capped remote allowance per month: Mirakl "2 remote work days
+    # per month" — the per-week patterns above do not catch it.
+    (re.compile(r"\b\d+\s+remote (work )?days? per month\b", re.I),
+     "only a few remote days a month (onsite the rest)"),
 ]
 
 # Ambiguous signals: worth flagging on the pick, never enough to demote.
@@ -566,6 +679,20 @@ ELIGIBILITY_WARNINGS = [
     (re.compile(r"\bhybrid\b", re.I), "mentions hybrid working"),
     (re.compile(r"\bon-?site\b(?!\s+interview)", re.I),
      "mentions on-site working"),
+    # --- Nov 14 warning (adjoe Working Student - Data Science, Hamburg,
+    # headlined Nov 14, withdrawn the same morning) ---
+    # A warning only, never a demote: the posting text states no
+    # blocker, no remote option, and no office share — just a Hamburg
+    # title, "currently pursuing a Bachelor's or Master's", and up to
+    # 20h/week during the semester. German Working Student roles are
+    # normally tied to enrolment at a university in that country and
+    # presence in the named city (adjoe's other Working Student roles
+    # state a hybrid setup with 3 core office days in Hamburg), so
+    # the pick needs a human location check before applying. The
+    # Nov 11 decision stands: a city in the title alone never demotes.
+    (re.compile(r"\bworking student\b", re.I),
+     "Working Student — usually tied to enrolment at a university in "
+     "the named city/country, check remote/location before applying"),
 ]
 
 
@@ -637,9 +764,11 @@ def _verify_one(j: dict) -> None:
     notes: list[str] = []
     # Eligibility check against the full text: location, visa, enrolment
     # country/level and start date are what the Nov 7 digest missed.
-    # A hard blocker demotes the pick exactly like a closed posting;
-    # warnings stay on the pick as a flag for Atharva to judge.
-    fail, warnings = check_eligibility(text)
+    # The title is part of the check too (Nov 14 adjoe: "Working
+    # Student" appears only in the title, never in the body text, so
+    # a body-only check would miss it entirely).
+    fail, warnings = check_eligibility(
+        f"{j.get('title', '')} — {text}")
     if fail:
         j["verified"] = False
         j["verify_note"] = (f"doesn't fit your rules: {fail} "
@@ -754,7 +883,7 @@ def main() -> None:
 
     all_jobs: list[dict] = []
     for fetcher in (fetch_remoteok, fetch_arbeitnow, fetch_remotive,
-                    fetch_wwr, fetch_hn, fetch_nextplay):
+                    fetch_wwr, fetch_hn, fetch_nextplay, fetch_himalayas):
         all_jobs.extend(fetcher())
 
     fresh = [j for j in all_jobs if j["id"] not in seen]

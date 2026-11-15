@@ -12,7 +12,7 @@ hiring (no interviews), tracks every application, and drills you for interviews.
 
 | Module | What you get |
 |---|---|
-| 🔍 **Finder** | Daily digest of remote AI/ML/automation internships & jobs from 6 sources, delivered to Telegram at 9:00 AM IST |
+| 🔍 **Finder** | Daily digest of remote AI/ML/automation internships & jobs from 7 sources, delivered to Telegram at 9:00 AM IST |
 | 🎯 **No-interview radar** | Flags postings that mention take-home assignments, paid trials, or test-based selection — so you can skip the interview grind |
 | 💰 **Pay detector** | Labels every posting as paid, unpaid, or unknown |
 | 📋 **Tracker** | Application pipeline: saved → applied → test → interview → offer, with follow-up reminders |
@@ -22,13 +22,15 @@ hiring (no interviews), tracks every application, and drills you for interviews.
 ## 🧠 How it works
 
 ```
-6 job sources ──► keyword filter ──► no-interview signals ──► Telegram digest
+7 job sources ──► keyword filter ──► no-interview signals ──► Telegram digest
      │                  │                     │
 RemoteOK API     AI/ML + automation     take-home, paid trial,
 Arbeitnow API    role keywords          "no interview", ...
 Remotive API     (word-boundary         ┌── highlighted first
 WWR RSS           matched, so "rpa"     │
 HN Who's Hiring   ≠ "representative")  ▼
+Next Play        
+Himalayas API    
                                    dedup via seen.json
                                    skip already-tracked jobs
 ```
@@ -89,7 +91,7 @@ python3 fetch_jobs.py --reset                   # forget seen jobs, full re-scan
 ## 📁 Project structure
 
 ```
-├── fetch_jobs.py          # the finder — 6 sources, filters, digest, CSV, Telegram
+├── fetch_jobs.py          # the finder — 7 sources, filters, digest, CSV, Telegram
 ├── tracker.py             # application tracker CLI (applications.json)
 ├── prep.py                # interview question bank + study plan
 ├── requirements.txt       # empty — stdlib only
